@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>박주상 - 주간업무보고 (2026-04-17)</title>
+<style>
+body{font-family:'맑은 고딕',sans-serif;margin:20px;font-size:12px}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #999;padding:6px;vertical-align:top}
+th{background:#ddeeff;font-weight:bold}
+h2{color:#003366}
+table tr:first-child td{background:#cce8ff;font-weight:bold;text-align:center}
+</style></head><body>
+<h2>박주상 - 주간업무보고서 (2026-04-17)</h2>
+<table><tbody><tr><td><p><span>프로젝트</span></p></td><td><p><span>금주실적(2026. 04. 13 ~ 04. 17)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>내주계획(2026. 04. 20 ~ 04. 24)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>목표일</span></p></td></tr><tr><td><p>SEC</p></td><td><p><br></p><p>&nbsp;1. AR 설비</p><p>&nbsp; -. 퓨렉스 방문&nbsp;</p><p>&nbsp; &nbsp;-. 최근 시료에 대한 이미지 촬영 및 설비 상태 점검</p><p>&nbsp; &nbsp;-. 5배 사용시 AF 기능이 정상적이지 않음</p><p>&nbsp; -. MPT 설비와 AR 설비에서 사용하는 픽셀 검사 알고리즘 비교</p><p>&nbsp; &nbsp;-. 동일 이미지로 각각의 알고리즘으로 테스트 진행</p><p>&nbsp; &nbsp;-. 불량 픽셀 검출 결과 비교시 검출 수량 차이 발생함</p><p>&nbsp;&nbsp;<span>&nbsp;-. 픽셀 매핑 방식의 차이로 픽셀의 밝기 평균값 계산이 틀림</span></p><p><span>&nbsp; &nbsp;-. 픽셀 Addressing 후 위치 확인시 서로 오차 발생함 확인</span></p><p><span>&nbsp; &nbsp;-. MPT 설비 : 영역에 대한 단순 평균 계산 방식 사용</span></p><p><span>&nbsp; &nbsp;-. AR 설비 : 영역의 중심을 기준으로한 가우시안 평균 계산 방식 사용</span></p><p><span>&nbsp; &nbsp;-. 서로 평균 계산 방식이 틀려서 수량 차이 발생함</span></p><p><span>&nbsp; &nbsp;-. MPT 설비에서 미검 및 오검 발생한 것에 대해 AR에서는 정상 검사됨</span></p><p><span>&nbsp; &nbsp; &nbsp;(가우시안 평균 밝기 계산 방식 사용시)</span></p><p><span>&nbsp; &nbsp;-. AR 설비에 사용하는 알고리즘은 현재 신뢰성 설비에 적용된</span></p><p><span>&nbsp; &nbsp; &nbsp;알고리즘이고, AR에서는 현재 추적 검사만 동작함</span></p><p><span>&nbsp; &nbsp;-. 각각에 대한 비교 자료 작성 및 관련 미팅 진행중</span></p><p><span>&nbsp; &nbsp;-. 각 설비에서 촬영한 이미지 품질 비교 (MPT / AR / BETA)</span></p><p><span>&nbsp; &nbsp; &nbsp;-. 개인 의견으로는 MPT에서 촬영한 이미지 품질이 낮아 검사시</span></p><p><span>&nbsp; &nbsp; &nbsp; &nbsp;오검 발생 확율이 높을 것으로 보임</span></p><p><span><br></span></p><p><span>&nbsp; * 현재 상태에서는 Vision 검사 알고리즘 방식을 통일화 필요함</span></p><p><span>&nbsp; &nbsp; (픽셀 매핑 및 검사 관련 전체 소스 비전팀에 전달 완료함)</span></p><p><br></p></td><td><p>박주상</p></td><td><p>&nbsp;1. 신뢰성 설비 프로그램</p><p>&nbsp; -. 현장 셋업 및 미비사항 보완</p><p><br></p><p>&nbsp;2. AR 설비 프로그램</p><p>&nbsp; -. MPT 와 AR 설비간 차이점 관련 미팅 및 비교 자료 검토</p><p><span>&nbsp;</span></p></td><td><p>박주상</p></td><td><p>4월</p></td></tr><tr><td><p>ELP</p></td><td><p><br></p><p>&nbsp;1. WPF Framework 프로그램</p><p>&nbsp; -. 이미지 뷰어 기능 수정</p><p>&nbsp; &nbsp;-. 라이브 모드일 경우에 대한 버그 및 추가 사항 적용</p><p>&nbsp; &nbsp;-. 이미지 뷰어에 확대/축소에 대한 위치 표시 미니맵 추가</p><p>&nbsp; -. 메인 GUI와 레시피 GUI 수정&nbsp;</p><p>&nbsp; &nbsp;-. 일부 레이아웃 변경</p><p>&nbsp; -. 픽셀 매핑 및 검사 알고리즘 테스트 및 버그 수정</p><p>&nbsp;</p></td><td><p>박주상</p></td><td><p><br></p></td><td><p><br></p></td><td><p><br></p></td></tr><tr><td><p><br></p></td><td><p><br></p></td><td><p><br></p></td><td><p><br></p></td><td><p><br></p></td><td><p><br></p></td></tr></tbody></table>
+</body></html>
