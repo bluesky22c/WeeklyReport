@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>김도현 - 주간업무보고 (2026-05-29)</title>
+<style>
+body{font-family:'맑은 고딕',Malgun Gothic,Arial,sans-serif;margin:20px;font-size:12px;color:#222}
+h2{color:#003366;margin:0 0 14px}
+.source{color:#555;margin:0 0 14px;font-size:11px}
+table{border-collapse:collapse;width:100%;table-layout:fixed}
+th,td{border:1px solid #999;padding:6px;vertical-align:top;word-break:keep-all;overflow-wrap:anywhere}
+th{background:#ddeeff;font-weight:bold;text-align:center}
+p{margin:0 0 4px;line-height:1.45}
+p.blank{height:6px;margin:0}
+</style>
+</head>
+<body>
+<h2>김도현 - 주간업무보고서 (2026-05-29)</h2>
+<p class="source">출처: [보고_제어1팀]주간업무보고서_김도현프로_20260529</p>
+<table>
+<thead><tr><th><p>프로젝트</p></th><th><p>금주실적(2026.5.25~5.29)</p></th><th><p>담당자</p></th><th><p>내주계획(2026.6.1~6.5)</p></th><th><p>담당자</p></th><th><p>목표일</p></th></tr></thead>
+<tbody><tr><td><p>SEC</p><p>신뢰성설비(RAS)</p></td><td><p>제어, 비전 오퍼레이션</p><p class="blank"></p><p>PG Part</p><p>Vision, M631, H702폴더와 같이 PG폴더 생성 - 전류, 온도 로그를 날짜/LOT/케리어 폴더에 생성후 CSV 파일로 저장</p><p>Vision Part</p><p>ng또는 Err시에 NG폴더 제외하고 해당하는 회차 지우기 (다음 회차로 안넘어가짐)</p><p>비전 리뷰시에 언로딩 버튼 누르면 언로딩 상태 표시 (ControlPC에서 물리적으로 케리어가 스토커에 옮겨지는 시간동안 UI 대기)</p><p>불량 더블클릭시에 제품 리뷰 로딩 ui표시</p><p>ControlPC에서 비전리뷰 꺼져있을때 리뷰 안되게 (VisionAlignStart신호가 5초내로안오면 비전리뷰 상태가 꺼져있는것) - 비전리뷰 실패시 알림창(비전 리뷰 상태가 아닙니다)</p><p>Data Part</p><p class="blank"></p><p>3개월 지나고 LOT 폴더 삭제시 자동으로 삭제전 프로그램 실행할때 알람 (~~LOT폴더 삭제 예정 백업이 필요합니다 - 생성 후 3개월 경과 자동삭제예정) *말투 다듬기</p><p>D drive ⇒ E drive 용량부족할때 데이터 이동, 기준(100GB) Autorun 시작할때마다, 즉 수시로 체크해서 용량이 초과되면 데이터 옮김</p></td><td><p>김도현</p></td><td><p>제어, 비전 오퍼레이션</p><p>Vision Part</p><p class="blank"></p><p>제품 리뷰 누르면 Review동작 탭으로 자동 전환</p><p>리뷰 비정상 동작시 (언로딩 전에 ControlPC 다운 등), 언로딩 reset 가능하게 (버튼 추가)</p><p>AF ON / AF OFF 버튼 두개만 (상태 표시등은 유지, LASER, AF)</p><p>AF ON ⇒ LASER ON, AF OFF ⇒ LASER OFF</p><p>Manual 동작, Auto Run PG status 출력 (좌하단 PG 관련 UI에 뿌리기)</p><p>IBAT IDD2 IVSS IVDD VCI IBAT2 TEMP1~4</p><p>LLC AF OPEN CLOSE 기능 추가 (LLC, AF 수동조작 창에 추가)</p><p>Vision 검사중 대표이미지 저장 (MIN/MAX)시 PATTERN 매칭 안되어있음 (현재 검사하는 항목과 다름)</p><p>Review 이후 원 사라지게 언로딩 또는 라이브 전환시 사라지게</p><p>점등 관련 UI조정 - BLACK 패턴 관련 점등 항목 빠져있지 않음 (RGB퍼럼 빼둘것)</p><p>점등 검사시 디버깅 설정, 픽셀 위치 검출 True, False 반대로 작동함</p></td><td><p>김도현</p></td><td><p class="blank"></p></td></tr><tr><td><p>LGD</p><p class="blank"></p><p>ICB system</p></td><td><p>Program Test (MTP, IVL, Aging)</p><p class="blank"></p><p>Test 결과 DATA 정리</p></td><td><p>김도현</p></td><td><p class="blank"></p></td><td><p class="blank"></p></td><td><p class="blank"></p></td></tr><tr><td><p class="blank"></p></td><td><p class="blank"></p></td><td><p class="blank"></p></td><td><p class="blank"></p></td><td><p class="blank"></p></td><td><p class="blank"></p></td></tr></tbody>
+</table>
+</body>
+</html>

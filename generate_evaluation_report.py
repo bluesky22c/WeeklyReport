@@ -26,38 +26,37 @@ class ProjectRule:
 CAREERS = {
     "박주상": (20.0, "20년", 4.6, "고난도 업무 주도, 리스크 사전 대응, 팀 내 기준 제시"),
     "김병걸": (20.0, "20년", 4.6, "안정적 수행, 문제 해결 주도, 후배 지원"),
-    "주영모": (17.0, "17년", 4.5, "복잡한 업무 조율, 품질 관리, 개선 제안"),
+    "주영모": (15.0, "15년", 4.3, "복잡한 업무 조율, 품질 관리, 개선 제안"),
     "김현석": (14.0, "14년", 4.3, "독립적 업무 수행, 주요 이슈 해결, 일정·품질 책임"),
     "송유림": (8.0, "8년", 4.0, "휴직 상태인 경우 평가 보류"),
-    "김성현": (5.0, "5년", 3.6, "담당 업무 완결성, 성장성, 일정 준수"),
-    "배유민": (5.0, "5년", 3.6, "담당 업무 완결성, 실무 숙련도, 문제 대응력"),
-    "유찬": (5.0, "5년", 3.6, "담당 기능 완결성, 이슈 대응, 고객사 커뮤니케이션 능력"),
+    "김성현": (5.0, "5년", 3.8, "담당 업무 완결성, 성장성, 일정 준수"),
+    "배유민": (3.0, "3년", 3.4, "담당 업무 완결성, 실무 숙련도, 문제 대응력"),
+    "유찬": (5.0, "5년", 3.8, "담당 기능 완결성, 이슈 대응, 고객사 커뮤니케이션 능력"),
     "박장미": (1.0, "1년", 2.8, "업무 습득 속도, 기본기, 보고·공유 성실성"),
     "황지환": (1.5, "1.5년", 2.9, "기본 업무 정확도, 셋업·현장 대응 성실성, 학습 속도"),
-    "김도현": (0.25, "3개월", 2.5, "적응도, 학습 태도, 지시 업무 수행 정확도"),
+    "김도현": (0.5, "6개월", 2.5, "적응도, 학습 태도, 지시 업무 수행 정확도"),
 }
 
 
 PROJECTS = {
-    "TOE 운영 프로그램": ProjectRule("TOE 운영 프로그램", 4.7, 2, "김현석, 김성현"),
     "TOE 1차 설비": ProjectRule("TOE 1차 설비", 3.0, 1, "배유민"),
     "TOE 2차 설비": ProjectRule("TOE 2차 설비", 4.5, 2, "김현석, 김성현"),
     "TOE CIM": ProjectRule("TOE CIM", 3.5, 1, "김성현"),
     "교육/학습": ProjectRule("교육/학습", 1.0, 1, ""),
     "ETC": ProjectRule("ETC", 2.0, 1, ""),
-    "Vision UI/WPF Framework": ProjectRule("Vision UI/WPF Framework", 4.6, 1, "박주상"),
+    "Vision UI/WPF Framework": ProjectRule("Vision UI/WPF Framework", 4.2, 1, "박주상"),
     "AR System": ProjectRule("AR System", 4.5, 2, "송유림, 박장미"),
     "MTP Cell Log": ProjectRule("MTP Cell Log", 3.2, 2, "송유림, 박장미"),
     "SDC LifeTime/MVT System": ProjectRule("SDC LifeTime/MVT System", 3.8, 1, "주영모"),
     "SEC 4종설비 1D/2D": ProjectRule("SEC 4종설비 1D/2D", 3.8, 1, "주영모"),
-    "Vision 알고리즘 개발": ProjectRule("Vision 알고리즘 개발", 4.8, 1, "박주상"),
+    "Vision 알고리즘 개발": ProjectRule("Vision 알고리즘 개발", 4.7, 1, "박주상"),
     "WHTM Loader/Unloader System": ProjectRule("WHTM Loader/Unloader System", 4.3, 2, "주영모"),
     "세미나/자료정리": ProjectRule("세미나/자료정리", 2.0, 1, ""),
     "KOPTI Sorter/Prober": ProjectRule("KOPTI Sorter/Prober", 3.8, 1, "주영모"),
+    "KOPTI Micro LED 검사 설비": ProjectRule("KOPTI Micro LED 검사 설비", 4.3, 1, "박주상"),
     "LGD ICBSystem": ProjectRule("LGD ICBSystem", 3.9, 2, "주영모, 박장미"),
     "신뢰성 평가 시스템": ProjectRule("신뢰성 평가 시스템", 4.7, 3, "김병걸, 주영모, 박주상"),
-    "RAS Vision 알고리즘 개발": ProjectRule("RAS Vision 알고리즘 개발", 4.8, 1, "박주상"),
-    "WHTM ACAControlSystem": ProjectRule("WHTM ACAControlSystem", 4.3, 1, "주영모"),
+    "WHTM ACAControlSystem": ProjectRule("WHTM ACAControlSystem", 4.5, 1, "주영모"),
     "Wafer Passive SPL Test System": ProjectRule("Wafer Passive SPL Test System", 2.0, 1, "배유민"),
     "Multi-Probing Tester": ProjectRule("Multi-Probing Tester", 4.5, 2, "김병걸, 배유민"),
     "CTP": ProjectRule("CTP", 2.5, 1, "박장미"),
@@ -70,8 +69,8 @@ PROJECTS = {
 QUAL = {
     "박주상": (0.50, 0.50, 0.20),
     "주영모": (0.45, 0.45, 0.20),
-    "김병걸": (0.40, 0.35, 0.20),
-    "김현석": (0.35, 0.25, 0.15),
+    "김병걸": (0.35, 0.30, 0.20),
+    "김현석": (0.50, 0.45, 0.20),
     "김성현": (0.20, -0.10, 0.10),
     "배유민": (0.25, 0.10, 0.10),
     "박장미": (0.25, 0.00, 0.15),
@@ -122,7 +121,7 @@ def classify(name: str, project: str, body: str) -> str:
             return "Vision UI/WPF Framework"
     if any(k in raw for k in ["RAS Vision", "Vision Part", "Review Part", "픽셀", "Addressing", "불량 판정", "이미지 분석", "매핑"]):
         if name in ["박주상", "김도현"]:
-            return "RAS Vision 알고리즘 개발"
+            return "Vision 알고리즘 개발"
     if any(k in raw for k in ["검사 알고리즘", "비전 알고리즘", "알고리즘 개발"]):
         return "Vision 알고리즘 개발"
     if any(k in raw for k in ["Multi-Probing", "EPI-SE1000", "Wafer F/O", "Wafer Map", "Wafer 공용"]):
@@ -140,7 +139,7 @@ def classify(name: str, project: str, body: str) -> str:
         if any(k in raw for k in ["2호기", "2차", "2차 설비", "신규건"]):
             return "TOE 2차 설비"
         if name in ["김현석", "김성현"]:
-            return "TOE 운영 프로그램"
+            return "TOE 2차 설비"
         return "ETC"
     if any(k in raw for k in ["ACAControlSystem", "G6", "EIP", "AGV"]):
         return "WHTM ACAControlSystem"
@@ -148,6 +147,9 @@ def classify(name: str, project: str, body: str) -> str:
         return "WHTM Loader/Unloader System"
     if any(k in raw for k in ["AR", "AF", "ND Filter", "PKG", "TSP"]):
         return "AR System"
+    if any(k in raw for k in ["ICBSystem", "LG Mobile OLED", "IVL", "PG Control", "Voltage Sweep", "MTP/IVL Test"]):
+        if name == "주영모":
+            return "LGD ICBSystem"
     if any(k in raw for k in ["MTP", "Cell Log"]):
         return "MTP Cell Log"
     if any(k in raw for k in ["LifeTime", "ICBSystem", "C310V2", "LG Mobile OLED"]):
@@ -159,6 +161,9 @@ def classify(name: str, project: str, body: str) -> str:
     if any(k in raw for k in ["4종", "1D", "2D", "Flicker", "Image Rotate"]):
         if name == "주영모":
             return "SEC 4종설비 1D/2D"
+    if any(k in raw for k in ["KOPTI Mirco LED", "KOPTI Micro LED", "Micro LED 검사", "Mirco LED 검사", "ACS 3축", "Fastech 3축"]):
+        if name == "박주상":
+            return "KOPTI Micro LED 검사 설비"
     if any(k in raw for k in ["KOPTI", "Sorter", "Prober"]):
         return "KOPTI Sorter/Prober"
     if any(k in raw for k in ["CTP", "점등검사"]):
@@ -229,7 +234,8 @@ def build_member_stats(rows_by_member):
         gap = avg - career[2]
         perf, lead, collab = QUAL.get(name, (0.0, 0.0, 0.0))
         breadth = min(max(project_count - 1, 0) * 0.05, 0.25)
-        raw_score = 3.5 + gap * 0.8 + perf + lead + collab + breadth
+        workload = min(row_count * 0.01, 0.35)
+        raw_score = 3.5 + gap * 0.8 + perf + lead + collab + breadth + workload
         score = clamp(raw_score)
         stats[name] = {
             "status": "평가",
@@ -242,6 +248,7 @@ def build_member_stats(rows_by_member):
             "lead": lead,
             "collab": collab,
             "breadth": breadth,
+            "workload": workload,
             "raw_score": raw_score,
             "score": round(score, 1),
             "top_projects": [p for p, _ in occurrence_counts.most_common(4)],
@@ -278,10 +285,11 @@ def rank_rows(stats) -> str:
         rows.append(
             f"<tr><td class=\"center\">{idx}</td><td>{esc(name)}</td><td class=\"center\">{career[1]}</td>"
             f"<td>{esc(', '.join(s['top_projects']) or 'ETC')}</td><td class=\"num\">{s['count']}</td>"
-            f"<td class=\"num\">{fmt(s['breadth'])}</td><td class=\"num\">{fmt(s['avg'])}</td><td class=\"num\">{fmt(career[2])}</td>"
+            f"<td class=\"num\">{s['row_count']}</td><td class=\"num\">{fmt(s['breadth'])}</td><td class=\"num\">{fmt(s['workload'])}</td>"
+            f"<td class=\"num\">{fmt(s['avg'])}</td><td class=\"num\">{fmt(career[2])}</td>"
             f"<td class=\"num\">{fmt(s['gap'])}</td><td class=\"num score\">{s['score']:.1f}</td></tr>"
         )
-    rows.append("<tr><td class=\"center\">-</td><td>송유림</td><td class=\"center\">8년</td><td>휴직</td><td class=\"center\">-</td><td class=\"center\">-</td><td class=\"center\">-</td><td class=\"num\">4.00</td><td class=\"center\">-</td><td class=\"center score\">보류</td></tr>")
+    rows.append("<tr><td class=\"center\">-</td><td>송유림</td><td class=\"center\">8년</td><td>휴직</td><td class=\"center\">-</td><td class=\"center\">-</td><td class=\"center\">-</td><td class=\"center\">-</td><td class=\"center\">-</td><td class=\"num\">4.00</td><td class=\"center\">-</td><td class=\"center score\">보류</td></tr>")
     return "\n".join(rows)
 
 
@@ -335,7 +343,8 @@ def detail_panels(stats, latest_date: str) -> tuple[str, str]:
             <tr><td>경력 기대 충족도</td><td class=\"num\">{fmt(s['gap'])}</td><td>{fmt(s['avg'])} - {fmt(CAREERS[name][2])}</td></tr>
             <tr><td>정성 보정</td><td class=\"num\">{fmt(s['perf'] + s['lead'] + s['collab'])}</td><td>성과/완료도 {fmt(s['perf'])}, 주도성/책임 {fmt(s['lead'])}, 협업/공유 {fmt(s['collab'])}</td></tr>
             <tr><td>프로젝트 폭 보정</td><td class=\"num\">{fmt(s['breadth'])}</td><td>min(({s['count']} - 1) × 0.05, 0.25)</td></tr>
-            <tr><td>최종 계산</td><td class=\"num score\">{s['score']:.1f}</td><td>3.5 + ({fmt(s['gap'])} × 0.8) + {fmt(s['perf'])} + {fmt(s['lead'])} + {fmt(s['collab'])} + {fmt(s['breadth'])} = {fmt(s['raw_score'])}</td></tr>
+            <tr><td>업무량 보정</td><td class=\"num\">{fmt(s['workload'])}</td><td>min({s['row_count']} × 0.01, 0.35)</td></tr>
+            <tr><td>최종 계산</td><td class=\"num score\">{s['score']:.1f}</td><td>3.5 + ({fmt(s['gap'])} × 0.8) + {fmt(s['perf'])} + {fmt(s['lead'])} + {fmt(s['collab'])} + {fmt(s['breadth'])} + {fmt(s['workload'])} = {fmt(s['raw_score'])}</td></tr>
           </tbody>
         </table>
         <h4>프로젝트 분류 집계</h4>
@@ -411,7 +420,8 @@ def render(stats, dates) -> str:
 개인별 보정 평균 난이도 = Σ(보정 난이도 × 해당 프로젝트 건수) / 전체 분류 건수
 경력 기대 충족도 = 개인별 보정 평균 난이도 - 경력별 기대 보정 난이도
 프로젝트 폭 보정 = min((통합 프로젝트 수 - 1) × 0.05, 0.25)
-최종 점수 = 3.5 + (경력 기대 충족도 × 0.8) + 성과/완료도 + 주도성/책임 + 협업/공유 + 프로젝트 폭 보정</div>
+업무량 보정 = min(원문 업무 행 수 × 0.01, 0.35)
+최종 점수 = 3.5 + (경력 기대 충족도 × 0.8) + 성과/완료도 + 주도성/책임 + 협업/공유 + 프로젝트 폭 보정 + 업무량 보정</div>
 
     <h2>3. 팀원 경력 및 기대 기준</h2>
     <table><thead><tr><th>팀원</th><th>경력</th><th>기대 보정 난이도</th><th>평가 시 기대 기준</th></tr></thead><tbody>
@@ -424,7 +434,7 @@ def render(stats, dates) -> str:
     </tbody></table>
 
     <h2>5. 팀원별 평가 결과</h2>
-    <table><thead><tr><th>순위</th><th>팀원</th><th>경력</th><th>주요 프로젝트</th><th>통합 프로젝트 수</th><th>프로젝트 폭 보정</th><th>보정 평균 난이도</th><th>기대 난이도</th><th>기대 충족도</th><th>최종 점수</th></tr></thead><tbody>
+    <table><thead><tr><th>순위</th><th>팀원</th><th>경력</th><th>주요 프로젝트</th><th>통합 프로젝트 수</th><th>원문 업무 행 수</th><th>프로젝트 폭 보정</th><th>업무량 보정</th><th>보정 평균 난이도</th><th>기대 난이도</th><th>기대 충족도</th><th>최종 점수</th></tr></thead><tbody>
       {rank_rows(stats)}
     </tbody></table>
 
