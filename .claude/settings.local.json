@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(netstat -ano)"
+      "Bash(netstat -ano)",
+      "PowerShell(& \"C:\\\\Users\\\\bluesky22c\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python313\\\\python.exe\" \"D:\\\\Temp\\\\�ְ���������\\\\generate_evaluation_report.py\")"
     ]
   }
 }

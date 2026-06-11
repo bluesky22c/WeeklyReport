@@ -28,7 +28,7 @@ CAREERS = {
     "김병걸": (20.0, "20년", 4.6, "안정적 수행, 문제 해결 주도, 후배 지원"),
     "주영모": (15.0, "15년", 4.3, "복잡한 업무 조율, 품질 관리, 개선 제안"),
     "김현석": (14.0, "14년", 4.3, "독립적 업무 수행, 주요 이슈 해결, 일정·품질 책임"),
-    "송유림": (8.0, "8년", 4.0, "휴직 상태인 경우 평가 보류"),
+    "송유림": (8.0, "8년", 4.0, "안정적 실무 수행, 반복 이슈 개선, 협업 기여"),
     "김성현": (5.0, "5년", 3.8, "담당 업무 완결성, 성장성, 일정 준수"),
     "배유민": (3.0, "3년", 3.4, "담당 업무 완결성, 실무 숙련도, 문제 대응력"),
     "유찬": (5.0, "5년", 3.8, "담당 기능 완결성, 이슈 대응, 고객사 커뮤니케이션 능력"),
@@ -77,6 +77,7 @@ QUAL = {
     "김도현": (0.10, -0.20, 0.10),
     "유찬": (0.30, 0.20, 0.15),
     "황지환": (0.20, 0.05, 0.10),
+    "송유림": (0.0, 0.0, 0.0),  # 휴직 전 1월 2주치만 존재해 정성 보정 미적용
 }
 
 
@@ -108,8 +109,6 @@ def classify(name: str, project: str, body: str) -> str:
     text = f"{project} {body}".lower()
     raw = f"{project} {body}"
 
-    if name == "송유림":
-        return "휴직"
     if any(k in raw for k in ["세미나", "세미", "자료 정리", "자료정리", "발표"]):
         return "세미나/자료정리"
     if any(k in raw for k in ["교육", "학습", "인수인계", "코드 분석"]):
@@ -150,6 +149,8 @@ def classify(name: str, project: str, body: str) -> str:
     if any(k in raw for k in ["ICBSystem", "LG Mobile OLED", "IVL", "PG Control", "Voltage Sweep", "MTP/IVL Test"]):
         if name == "주영모":
             return "LGD ICBSystem"
+    if any(k in raw for k in ["CTP", "점등검사"]):
+        return "CTP"
     if any(k in raw for k in ["MTP", "Cell Log"]):
         return "MTP Cell Log"
     if any(k in raw for k in ["LifeTime", "ICBSystem", "C310V2", "LG Mobile OLED"]):
@@ -166,8 +167,6 @@ def classify(name: str, project: str, body: str) -> str:
             return "KOPTI Micro LED 검사 설비"
     if any(k in raw for k in ["KOPTI", "Sorter", "Prober"]):
         return "KOPTI Sorter/Prober"
-    if any(k in raw for k in ["CTP", "점등검사"]):
-        return "CTP"
     if any(k in raw for k in ["A2 EMR", "EMR"]):
         return "SDC A2 EMR"
     if any(k in raw for k in ["아이코디", "렌즈검사"]):
@@ -221,9 +220,6 @@ def collect():
 def build_member_stats(rows_by_member):
     stats = {}
     for name in TARGET_PEOPLE:
-        if name == "송유림":
-            stats[name] = {"status": "보류", "rows": [], "score": None}
-            continue
         rows = rows_by_member.get(name, [])
         row_count = len(rows)
         occurrence_counts = Counter(r["classified"] for r in rows)
@@ -289,7 +285,6 @@ def rank_rows(stats) -> str:
             f"<td class=\"num\">{fmt(s['avg'])}</td><td class=\"num\">{fmt(career[2])}</td>"
             f"<td class=\"num\">{fmt(s['gap'])}</td><td class=\"num score\">{s['score']:.1f}</td></tr>"
         )
-    rows.append("<tr><td class=\"center\">-</td><td>송유림</td><td class=\"center\">8년</td><td>휴직</td><td class=\"center\">-</td><td class=\"center\">-</td><td class=\"center\">-</td><td class=\"center\">-</td><td class=\"center\">-</td><td class=\"num\">4.00</td><td class=\"center\">-</td><td class=\"center score\">보류</td></tr>")
     return "\n".join(rows)
 
 
@@ -302,7 +297,6 @@ def summary_rows(stats, latest_date: str) -> str:
             f"<td>{CAREERS[name][1]}차 기대 난이도 {CAREERS[name][2]:.2f} 대비 보정 평균 난이도 {s['avg']:.2f}. "
             f"주요 분류는 {esc(', '.join(s['top_projects']) or 'ETC')}이며, {esc(latest_date)} 저장분까지 반영했다.</td></tr>"
         )
-    rows.append(f"<tr><td>송유림</td><td class=\"center score\">보류</td><td>휴직 상태로 개인 평가는 보류했다. {esc(latest_date)} 결재-완료함에서도 신규 주간업무보고가 확인되지 않았다.</td></tr>")
     return "\n".join(rows)
 
 
@@ -315,13 +309,6 @@ def detail_panels(stats, latest_date: str) -> tuple[str, str]:
         active = " active" if first else ""
         buttons.append(f"<button class=\"tab-button member-tab-button{active}\" type=\"button\" data-member-tab=\"member-{tab}\">{esc(name)}</button>")
         first = False
-        if name == "송유림":
-            panels.append(f"""
-      <section id=\"member-{tab}\" class=\"member-panel{active}\">
-        <h3>{esc(name)} <span class=\"score\">보류</span></h3>
-        <table><tbody><tr><td>평가 상태</td><td class=\"center score\">보류</td><td>휴직 상태이므로 최종 점수 산정 제외</td></tr></tbody></table>
-      </section>""")
-            continue
         s = stats[name]
         project_rows = "\n".join(
             f"<tr><td>{esc(p)}</td><td class=\"num\">1</td><td class=\"num\">{s['occurrence_counts'].get(p, 0)}</td><td class=\"num\">{PROJECTS.get(p, PROJECTS['ETC']).difficulty:.1f}</td><td class=\"num\">{adjusted(PROJECTS.get(p, PROJECTS['ETC'])):.2f}</td></tr>"
@@ -412,7 +399,7 @@ def render(stats, dates) -> str:
       <li>프로젝트 난이도가 높아도 투입인원이 많으면 개인별 부담과 책임이 분산된 것으로 보아 보정한다.</li>
       <li>경력은 가산점이 아니라 연차별 기대 난이도와 책임 수준을 높이는 기준으로 사용한다.</li>
       <li>{esc(latest_date)} 그룹웨어 결재-완료함에서 추출한 최신 주간업무보고까지 포함했다.</li>
-      <li>송유림은 휴직 상태로 개인 평가는 보류한다.</li>
+      <li>송유림은 2026-06-01 복직하여 정상 평가 대상으로 전환했다. 단, 휴직 전 2026-01 2주치 보고서만 존재해 점수는 해당 데이터 기준이다.</li>
     </ul>
 
     <h2>2. 계산공식</h2>

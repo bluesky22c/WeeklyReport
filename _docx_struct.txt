@@ -1,0 +1,24 @@
+=== PARAGRAPHS ===
+[P0] style=Normal | 주간업무 실적 및 계획 (제어1팀)
+[P1] style=Normal | Date : 2026-05-29     작성자 : 이종규
+
+=== TABLES ===
+--- TABLE 0: 16 rows x 5 cols ---
+  R0: ['프로젝트', '금주 핵심 실적 (2026-05-25 ~ 2026-05-29)', '담당자', '내주 계획 (2026-06-01 ~ 2026-06-05)', '목표일']
+  R1: ['SEC', 'SEC', 'SEC', 'SEC', 'SEC']
+  R2: ['Multi-Probing Tester', "1. SM DSP PG TMD 전송 테스트 / - 수정 TxHost 프로그램 수신 후 테스트했으나 동일 현상 발생 / - 문제 내용 SM DSP 공유 및 회신 대기 /  / 2. 제어 프로그램 수정 / - Recipe TMD 전송 시퀀스 수정 / - TMD 파일명 260자 이하 및 '%' 문자 인터락 추가 / - Wafer 검사 Data Reset 간소화 버튼 추가", '김병걸 / 배유민', '1. 수정 TxHOST 프로그램 수신 시 테스트 진행 / 2. EFEM Unit(LPM, Robot, Aligner) 프로토콜 문서 분석 / 3. Wafer F/O 샘플 런 대응', '11월']
+  R3: ['신뢰성 평가 시스템', '1. 고객 지정 RED 샘플 15EA 검증 / - 챔버 Aging 100시간 1회차 완료 / - 설비 오토 런 측정 2회차 완료 /  / 2. Recipe Setting 고객 교육 준비 / - SOP 매뉴얼 작성 /  / 3. 샘플 평탄도/모터 이슈 지원 / - AI 센터 현장 방문 및 캐리어 장착 평탄도 파악 지원 / - Stage Y축 CP 교체 후 증상 재연 테스트 지원 /  / 4. 제어/비전 오퍼레이션 기능 개선 / - PG 로그 저장 폴더 구조 및 CSV 저장 기능 작성 / - Vision NG/Err 회차 처리, 리뷰 UI, 실패 알림, 데이터 백업 알림 및 드라이브 용량 관리 기능 정리', '김병걸 / 김도현 / 주영모 / 박주상', '1. 샘플 15EA Aging 100시간 2회차 후 6/1 3회차 측정 / 2. 6/1 Recipe Setting 고객 교육 진행 / 3. Vision Review/AF/PG Status/LLC AF 수동조작 등 고객 요청 기능 개선', '6월']
+  R4: ['AR System', '1. 10Bit 촬영 시 R/B 반전 이슈 수정 완료 / 2. Align 촬영 렌즈 10배 -> 5배 변경 요청 현장 적용 / 3. LLC/AF 통신 끊김 및 재연결 불가 증상 확인 / - 소프트웨어 문제는 아닌 것으로 판단되어 씽크론 문의 진행', '박장미', '1. 확인 결과 수신 후 SEC 공유 / 2. LLC/AF 정상 작동 확인 및 일정 조율 후 완료 확인', '2026.06.']
+  R5: ['SDC', 'SDC', 'SDC', 'SDC', 'SDC']
+  R6: ['전계인가 / DCAS System', '1. Pin Recipe 상태 가이드 정리 / - 구분/값/설명 박스 정리 및 미사용 항목 제거 / - UpdateCellColorAndText, GetPinColor, PinRecipe 모델 주석 동기화 /  / 2. Function Generator 백업 경로 검토 / - 기본 장비 NF WF1982 기준 유지 / - WF1982 P.O 지연 리스크 대비 WF1974 대여 가능성 조사 / - 대여기 기반 신호 인가/측정 시퀀스 사전 검증 계획 수립 /  / 3. PLC 통신 인터페이스 협의 문서 작성 / - Mitsubishi Q808D-J71GP21-SX 사용 유지 요청 / - 변경 영향 범위와 검증 비용 정리 / - 인터페이스 변경 시 추가 산출 요청 항목 명시', '황지환', '', '']
+  R7: ['LGD', 'LGD', 'LGD', 'LGD', 'LGD']
+  R8: ['ICB System', '1. ICBSystem 프로그램 셋업 및 현장 대응 / - 개발실 PG 이동 후 테스트 진행 / - 구동 Cable 교체 후 정상 테스트 / - CA410 통신 문제 프로그램 수정 적용 / - 파주 현장 Turn On 완료 / - Stress Pattern On 문제시 문제발생하여 원인 파악중 /  / 2. 파주 단지 외근 및 추가 납품분 셋업 / - 내부 PC/태블릿 Set-up 및 ICB System 디버깅 / - 3대 추가 납품분 공유기/태블릿/PC 셋업 완료 / - MTP 데이터 저장 후 PG Recipe 다운로드 이슈 디버깅 /  / 3. Program Test / - MTP, IVL, Aging 테스트 및 결과 DATA 정리', '주영모 / 박장미', '1. Stress Pattern On 문제 Cell 구동 테스트 / 2. PG Recipe 단일 조건으로 재테스트 / 3. 파주 추가 납품분 3세트 셋업', '26.6.11']
+  R9: ['TOE 1호기', '1. Himax IC 변경 관련 작업 / - Himax 결과값 기반 시뮬레이션 테스트 진행 / - TSP_Spec 파일 읽기 문제 원인 확인 및 해결 /  / 2. 43.5 Inch / 8 Inch 모델 대응 / - 검사 판정 이미지 예외 대응 / - TSP_Spec 및 Console Recipe TSP Spec 변경 / - 8 Inch 신규 모델 Recipe, MapFile 작성', '김성현 / 배유민', '1. 8 Inch 신규 모델 Setup / 2. Himax 칩 검사 항목 변경 대응 / 3. Glass Align Threshold Recipe별 분리 및 프로그램 업데이트(ver 1.1.11)', '06월 05일']
+  R10: ['TOE 2호기', '1. ToE 2호기 프로그램 작업 / - Interlock Qual Sheet 기준 Interlock 작업 진행(60%) / - DFS Upload 파일 생성 / - Glass 검사 결과 파일 및 결과 Judge 파일 생성 완료 / - Panel Align 후 Offset 이동 기능 추가 진행(80%) / - 기타 프로그램 버그 수정 /  / 2. 설비 셋업 및 기능 검증 / - One Button 일부 검증 및 테스트 / - Glass Align / Panel Align / 전체 위치 TSP 검사 기능 완료 / - 개별 매뉴얼 검사 프로세스 테스트 완료 / - Panel Align 포함 Pad Contact View 검증 진행(50%) / - 검사 포함 내부 Auto Run 테스트 및 Software Limit 설정 디버깅 완료', '김현석 / 김성현', '1. Interlock 작업 및 DFS Upload/이미지 파일 생성 / 2. Panel Align 후 Offset 이동 기능 추가 / 3. TSP 연동 테스트 대응 / 4. Panel Align 포함 Pad Contact View 검증', '6월']
+  R11: ['TOE CIM', '1. TOE CIM 프로그램 개발(2호기 신규건) / - CIM QUAL 항목 확인 및 작업 진행(50%) / - Pad View Image Viewer 별도 프로그램 작업 진행(40%)', '김성현', '1. CIM QUAL 항목 현장 테스트 / 2. Pad View Image Viewer 프로그램 제작 진행', '6월']
+  R12: ['KOPTI (광기술원)', 'KOPTI (광기술원)', 'KOPTI (광기술원)', 'KOPTI (광기술원)', 'KOPTI (광기술원)']
+  R13: ['MicroLED 점등 검사 설비', '1. Micro LED 검사 설비 프로그램 / - 기본 동작 Flow 정리 및 샘플 클래스 구성/테스트 / - 로그 저장 버그 수정 / - D/R 미팅 참석 및 요구사항 정리 / - 레시피 GUI 수정/테스트 / - 설비 3D 도면 확인 및 필요사항 분석 /  / 2. WPF Framework / 프로젝트 파악 / - 런타임 및 모션 라이브러리 구조 파악 / - 바슬러 카메라 라이브러리 연동 검토 / - 카메라 테스트용 프로젝트 제작', '박주상 / 유찬', '1. 전체/상세 동작 Flow 설계 및 업무 정리 / 2. 레시피 파라미터, 모터 위치/파라미터 정리 / 3. 얼라인 카메라 모듈 구현 / 4. Basler 카메라 프레임 그래버 마이그레이션 / 5. 이미지 뷰어 수정 및 Grab/Live 테스트', '9월']
+  R14: ['기타', '기타', '기타', '기타', '기타']
+  R15: ['', '', '', '', '']
+
+=== HEADERS / FOOTERS ===
