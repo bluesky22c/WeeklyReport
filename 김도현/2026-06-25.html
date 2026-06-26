@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>김도현 - 주간업무보고 (2026-06-25)</title>
+<style>
+body{font-family:'맑은 고딕',sans-serif;margin:20px;font-size:12px}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #999;padding:8px;vertical-align:top;word-break:keep-all;white-space:pre-wrap}
+th{background:#ddeeff;font-weight:bold;text-align:center}
+h2{color:#003366}
+p{margin:2px 0;line-height:1.7}
+.source{color:#666;font-size:11px;margin-bottom:10px}
+</style></head><body>
+<h2>김도현 - 주간업무보고서 (2026-06-25)</h2>
+<p class="source">출처: [보고_제어1팀]주간업무보고서_김도현프로_20260625</p>
+<table><tbody><tr><td><p><span>프로젝트</span></p></td><td><p><span>금주실적(2026.6.22~6.26)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>내주계획(2026.6.29~7.3)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>목표일</span></p></td></tr><tr><td><p><span>SEC-DS, CSS LEDoS </span></p><p><span>신뢰성 평가 설비 Setup</span></p></td><td><p><span>&nbsp;- 오퍼레이션</span></p><p><span>&nbsp;- 캐리어 지그 평탄화 측정 및 변경된 지그 테스트</span></p><p><span>&nbsp;- BLUE 500H Aging Test</span></p><h3>1. VISION Part</h3><ul><li><p><b>AF 알고리즘 개선 및 점검 (평탄화 이슈 개선 됨)</b></p><ul><li><p>각 모서리(4) 및 중앙(1)의 선명도 값을 합산하여 5로 나눈 '선명도 평균' 산출 구현.</p></li><li><p>해당 평균값이 가장 높은 Z축 위치로 이동하여 최적의 AF 오프셋을 찾아가도록 설정.</p></li></ul></li><li><p><b>불량 조회 탭 UI/UX 및 기능 개선</b></p><ul><li><p>(사용성 개선) 기존 불량 조회 탭 사용이 어렵다는 피드백 반영, 'LOT 요약' 및 '상세' 화면 수정.</p></li><li><p>UI 가독성 중점으로 재구성</p></li><li><p>대표 불량 리스트의 이미지가 정상적으로 로드되지 않던 문제 수정.</p></li></ul></li><li><p><b>데이터 관리 및 레시피 동기화</b></p><ul><li><p>LOT 생성/변경 및 Carrier 생성/변경 시 관련 데이터 일괄 적용 여부 검증.</p></li><li><p>90일 뒤에 LOT 폴더 자동 정리 관련 기능 수정 (사용자 확인 및 안전성 개선)</p></li><li><p>레시피 이름이나 설명 수정 시 기존 데이터가 삭제되는 오류 현상 확인 및 해결.</p></li></ul></li><li><p><b>VISION 동작 및 REVIEW 동작 탭</b></p><ul><li><p>사용자 편의 기능 추가 및 기능 오작동 개선</p></li></ul></li><li><p><b>NG skip, Align AF 재시도 기능 테스트</b></p><ul><li><p>Auto run시에 NG로 인해 설비가 멈추는 상황을 개선하기 위해 NG skip 레시피 추가</p></li><li><p>간헐적 Align Mark 검출 실패 상황 개선하기 위해 Align AF 재시도 레시피 추가&nbsp;</p></li></ul></li></ul><h3>2. Data Part</h3><ul><li><p><b>알람 시퀀스 수정</b></p><ul><li><p>702, 631 VISION 알람 발생 후 재시도(Retry)할 때, 공정 회차가 불필요하게 카운트다운/업(올라가지 않도록)되지 않는 로직 확인 및 조치.</p></li></ul></li></ul><h3>3. PG Part (TMD 포함)</h3><ul><li><p><b>상태 제어 및 모니터링</b></p><ul><li><p>PG 프로그램에서 직접 PG 제어 시, RAS 프로그램 쪽에서 PG의 ON/OFF 상태를 정상적으로 읽어오지 못하는 인터페이스 문제 확인 및 해결.</p></li></ul></li><li><p><b>TMD 안전장치 수정</b></p><ul><li><p>PG 불량등으로 과전류 또는 Cell 고장으로 인한 이상전원 발생 시 PG Reset 하는 안전장치 추가</p></li></ul></li></ul></td><td><p>김도현</p></td><td><p>&nbsp;- 오퍼레이션</p><p>&nbsp;- 고객사 REVIEW 동작 교육</p><p>&nbsp;- 캐리어 지그 평탄화 개선</p><p>&nbsp;- 고객사 요청사항 반영</p><p>&nbsp;- Exsposure 값의 기준이 명확하지 않아 (기존 육안으로 적당한 밝기를 찾아가며 설정), 포화 전 Cell의 기준 밝기를 맞추기 위해 Auto Exposure기능 추가 및 테스트</p></td><td><p>김도현</p></td><td><p><br></p></td></tr><tr><td><p><br></p></td><td><p><br></p></td><td><p><br></p></td><td><p><br></p></td><td><p><br></p></td><td><p><br></p></td></tr><tr><td><p><br></p></td><td><p><br></p></td><td><p><br></p></td><td><p><br></p></td><td><p><br></p></td><td><p><br></p></td></tr></tbody></table>
+</body></html>

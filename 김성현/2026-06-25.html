@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>김성현 - 주간업무보고 (2026-06-25)</title>
+<style>
+body{font-family:'맑은 고딕',sans-serif;margin:20px;font-size:12px}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #999;padding:8px;vertical-align:top;word-break:keep-all;white-space:pre-wrap}
+th{background:#ddeeff;font-weight:bold;text-align:center}
+h2{color:#003366}
+p{margin:2px 0;line-height:1.7}
+.source{color:#666;font-size:11px;margin-bottom:10px}
+</style></head><body>
+<h2>김성현 - 주간업무보고서 (2026-06-25)</h2>
+<p class="source">출처: [보고_제어1팀]주간업무보고서 김성현프로_20260625</p>
+<table><tbody><tr><td>프로젝트</td><td>금주실적(2026.06.22~06.26)</td><td>담당자</td><td>내주계획(2026.06.29~07.03)</td><td>담당자</td><td>목표일</td></tr><tr><td>LGD</td><td>1)2호기  진행 사항<br>    <font>- CIM QUAL 남은항목 작업 진행 내용-</font><font><br>    &nbsp; APD/언로드 관련<br>    &nbsp; - S6F73 Actual Processing Data  Report 재작성<br>    &nbsp; - S2F69 Unload Data Request 수신 시  팝업창 재작성 (데이터 매칭 Miss/재전송 UI)<br>    &nbsp; EQP ↔ CIM 추가 프로토콜 구현<br>    &nbsp; - CimRecipeCommandRequest: 레시피  생성/수정/삭제/이름변경 RCMD 전달<br>    &nbsp; - CimSelectRecipeParamDataRequest:  레시피 파라미터 조회<br>    &nbsp; - ActualProcessingData: APD 데이터  (UnLoad/ExChange 완료 시 사용)<br>    &nbsp; - CimCurrentAllRecipeInfoRequest:  설비 전체 레시피 정보 조회<br>    &nbsp; 언로드 데이터 재전송 버그 수정 및 S2F80 구조  개선<br>    &nbsp;&nbsp; 언로드 리포트 재전송 PNLIF 미반영 버그 수정<br>    &nbsp; S2F80 Load Glass Data 수신 시  UnLoadGlass 덮어쓰기 제거<br>    &nbsp; - 증상: 언로드 데이터 재요청 시나리오 진행 중 다음 글라스  S2F80 수신 시 현재 언로드 데이터가 소실<br>    &nbsp; - 원인: S2F80 핸들러에서 LoadGlass 데이터를  UnLoadGlass에도 미리 복사하는 불필요한 로직 존재<br>    &nbsp; - 수정: S2F80에서는 LoadGlass만 세팅,  UnLoadGlass는 검사 완료 후 SetUnLoadGlassJudge()에서 세팅되도록 역할 분리<br>    </font><font>- 43.5인치 셋업 진행 내용-</font><font><br>    &nbsp;기본 레시피 설정<br>    &nbsp; - Glass Info: 패널 라인수, 1라인 내 패널수,  Glass 검사 방향 설정 변경<br>    &nbsp; - 컨택터 정보: TSP Board4만 사용으로 설정  변경<br>    &nbsp; - Glass Align 정보: Align Mark 간 X거리값  변경<br>    &nbsp; - 1호기 43.5인치 Map파일 기준 참고하여  PanelDesign.csv 파일 수정<br>    &nbsp; - A컷 Align Mark 위치 티칭 후 Align 동작  테스트 완료 100%<br>    &nbsp; - B컷 Align Mark 위치 티칭 후 Align 동작  테스트 완료 100%<br>    &nbsp; - PadView 티칭 진행중(첫번째 패널 Block 1~3  티칭 완료) 50%<br>    2)1호기 진행 사항<br>    -응용S/W 팀에서 받은 Himax 검사 결과 파일 받아 시물레이션 테스트 진행 예정<br>    <br>    </font></td><td>김성현</td><td>탄력근무로 인한 휴무예정</td><td>김성현</td><td>-</td></tr></tbody></table>
+</body></html>
