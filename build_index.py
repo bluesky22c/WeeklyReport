@@ -92,11 +92,15 @@ body{font-family:"맑은 고딕",sans-serif;font-size:13px;display:flex;height:1
 const ORIGINAL = __DATA_JSON__;
 // ===DATA_END===
 
-const LS_KEY = 'weeklyReport_v2';
+const LS_KEY = 'weeklyReport_v3';  // v2: 탐색만 해도 캐시 저장 → 재빌드 시 옛 캐시가 새 데이터를 가리는 결함. v3에서 폐기.
 function loadEdits(){try{return JSON.parse(localStorage.getItem(LS_KEY)||'{}')}catch(e){return{}}}
 function saveEdits(e){localStorage.setItem(LS_KEY,JSON.stringify(e))}
+// 편집 시점 원본 내용의 해시 (원본이 바뀌면 옛 편집을 무효 처리)
+function hashStr(s){let h1=0xdeadbeef,h2=0x41c6ce57;for(let i=0;i<s.length;i++){const ch=s.charCodeAt(i);h1=Math.imul(h1^ch,2654435761);h2=Math.imul(h2^ch,1597334677);}h1=Math.imul(h1^(h1>>>16),2246822507)^Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507)^Math.imul(h1^(h1>>>13),3266489909);return (4294967296*(2097151&h2)+(h1>>>0)).toString(36);}
+// 현재 ORIGINAL과 기준 해시가 일치하는 '유효 편집'만 반환, 아니면 null (옛 캐시 무시)
+function validEdit(edits,name,date){const e=edits[name]&&edits[name][date];if(!e||typeof e!=='object')return null;if(e.base!==hashStr((ORIGINAL[name]&&ORIGINAL[name][date])||''))return null;return e.content;}
 
-let curPerson=null, curDate=null;
+let curPerson=null, curDate=null, dirty=false;
 
 const personList=document.getElementById('person-list');
 Object.keys(ORIGINAL).forEach(name=>{
@@ -119,7 +123,7 @@ function selectPerson(name){
   const dates=Object.keys(ORIGINAL[name]).sort();
   dates.forEach(date=>{
     const tab=document.createElement('div');
-    tab.className='date-tab'+(edits[name]&&edits[name][date]?' edited':'');
+    tab.className='date-tab'+(validEdit(edits,name,date)!==null?' edited':'');
     tab.textContent=date;
     tab.id='tab-'+date;
     tab.onclick=()=>selectDate(name,date);
@@ -137,18 +141,21 @@ function selectDate(name,date){
   if(tab) tab.classList.add('active');
   document.getElementById('doc-title').textContent=name+' — '+date+' 주간업무보고';
   const edits=loadEdits();
-  const content=(edits[name]&&edits[name][date])?edits[name][date]:ORIGINAL[name][date];
+  const ve=validEdit(edits,name,date);
+  const content=ve!==null?ve:ORIGINAL[name][date];
   document.getElementById('editor').innerHTML=content;
+  dirty=false;
   setStatus('');
 }
 
 function autoSave(){
-  if(!curPerson||!curDate) return;
+  if(!curPerson||!curDate||!dirty) return;   // 실제 편집(dirty)일 때만 저장 — 탐색만으로는 저장 안 함
   const content=document.getElementById('editor').innerHTML;
   const edits=loadEdits();
   if(!edits[curPerson]) edits[curPerson]={};
-  edits[curPerson][curDate]=content;
+  edits[curPerson][curDate]={base:hashStr((ORIGINAL[curPerson]&&ORIGINAL[curPerson][curDate])||''), content:content};
   saveEdits(edits);
+  dirty=false;
   const tab=document.getElementById('tab-'+curDate);
   if(tab) tab.classList.add('edited');
 }
@@ -165,6 +172,7 @@ function resetCurrent(){
   if(edits[curPerson]) delete edits[curPerson][curDate];
   saveEdits(edits);
   document.getElementById('editor').innerHTML=ORIGINAL[curPerson][curDate];
+  dirty=false;
   const tab=document.getElementById('tab-'+curDate);
   if(tab) tab.classList.remove('edited');
   setStatus('원본으로 복원됨');
@@ -185,8 +193,10 @@ function exportFile(){
   const edits=loadEdits();
   const merged=JSON.parse(JSON.stringify(ORIGINAL));
   for(const n of Object.keys(edits))
-    for(const d of Object.keys(edits[n]))
-      if(merged[n]&&merged[n][d]!==undefined) merged[n][d]=edits[n][d];
+    for(const d of Object.keys(edits[n])){
+      const ve=validEdit(edits,n,d);
+      if(ve!==null && merged[n]&&merged[n][d]!==undefined) merged[n][d]=ve;
+    }
   // 현재 HTML 소스의 DATA 마커 사이를 새 데이터로 교체
   const src=document.documentElement.outerHTML;
   const newData=JSON.stringify(merged);
@@ -207,6 +217,7 @@ function timeStr(){const n=new Date();return n.getHours().toString().padStart(2,
 
 let _timer=null;
 document.getElementById('editor').addEventListener('input',()=>{
+  dirty=true;
   clearTimeout(_timer);
   setStatus('편집 중...');
   _timer=setTimeout(()=>{autoSave();setStatus('자동저장됨 '+timeStr())},3000);
