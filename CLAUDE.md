@@ -19,7 +19,7 @@ KT Biz 그룹웨어(gwp.ktbizoffice.com)의 **결재-미결함 또는 결재-완
 
 ## 0. 반복 작업 트리거 — 금주 주간업무보고 작성
 
-사용자가 Claude Code에게 아래 문구 또는 유사 표현으로 요청하면, 단순 HTML 저장이 아니라 **팀원별 HTML 저장 → index.html 갱신 → 금주 통합 DOCX 작성**까지 전체 절차를 한 번에 수행한다.
+사용자가 Claude Code에게 아래 문구 또는 유사 표현으로 요청하면, 단순 HTML 저장이 아니라 **팀원별 HTML 저장 → index.html 갱신 → 금주 통합 DOCX 작성 → 성과평가 리포트 생성**까지 전체 절차를 한 번에 수행한다.
 
 트리거 문구:
 - `금주주간업무보고 작성`
@@ -37,7 +37,8 @@ KT Biz 그룹웨어(gwp.ktbizoffice.com)의 **결재-미결함 또는 결재-완
 6. 전주 통합 DOCX 형식을 참고해 해당 주 `[보고_제어1팀]주간업무보고(YYMMDD).docx`를 생성한다.
 7. 통합 DOCX 표 구조는 `프로젝트 / 금주 핵심 실적 / 담당자 / 내주 계획 / 목표일` 5열을 유지한다.
 8. 통합 DOCX의 첫 타이틀 `주간업무 실적 및 계획 (제어1팀)`은 기존 형식을 유지하고, 나머지 작성일/작성자/표 헤더/표 본문/프로젝트 그룹 행 등 일반 텍스트는 8pt로 작성한다.
-9. 완료 후 HTML 저장 인원, 누락 인원, 생성된 DOCX 파일, `index.html` 갱신 여부, 검증 결과를 요약한다.
+9. HTML 저장과 `index.html` 갱신이 끝난 뒤 `D:\Temp\주간업무정리\generate_evaluation_report.py`를 실행해 `evaluation_report.html`(팀원별 성과평가 결과)을 재생성한다. 입력이 팀원별 HTML 보고서이므로 반드시 2~5단계(HTML 저장·index 갱신) 이후, 요약(10단계) 전에 실행한다.
+10. 완료 후 HTML 저장 인원, 누락 인원, 생성된 DOCX 파일, `index.html` 갱신 여부, `evaluation_report.html` 갱신 여부, 검증 결과를 요약한다.
 
 검증 기준:
 - 팀원별 `YYYY-MM-DD.html`에 `<p class="source">출처: ...</p>`가 있어야 한다.
@@ -46,6 +47,7 @@ KT Biz 그룹웨어(gwp.ktbizoffice.com)의 **결재-미결함 또는 결재-완
 - DOCX에 전주 날짜/파일명 흔적이 남아 있지 않아야 한다.
 - DOCX에 금주/내주 기간과 주요 프로젝트명이 포함되어야 한다.
 - DOCX의 타이틀 제외 일반 텍스트가 8pt인지 확인한다.
+- `generate_evaluation_report.py` 실행 후 `evaluation_report.html`이 생성·갱신되고, stdout에 팀원별 `score/avg/count` 요약과 함께 금주 저장분까지 반영된 평가 범위(`{시작일} ~ {최신일}`)가 출력되는지 확인한다.
 
 ---
 
@@ -632,6 +634,7 @@ for name in sorted(os.listdir(base)):
 | 빌드 스크립트 | `D:\Temp\주간업무정리\build_index.py` |
 | 폼헤더 제거 | `D:\Temp\주간업무정리\fix_all_headers.py` |
 | 헤더 스타일 | `D:\Temp\주간업무정리\add_header_style.py` |
+| 성과평가 리포트 | `D:\Temp\주간업무정리\generate_evaluation_report.py` → `evaluation_report.html` |
 | 그룹웨어 URL | `https://gwp.ktbizoffice.com/ezapproval/main/indexapproval` |
 | iframe ID | `message` |
 | 문서 항목 선택자 | `li[name="DocList_TR"]` |
@@ -657,6 +660,7 @@ Claude는 위 요청을 받으면 이 CLAUDE.md의 `0. 반복 작업 트리거` 
 5. 전주 DOCX 형식을 참고해 금주 `[보고_제어1팀]주간업무보고(YYMMDD).docx` 생성
 6. 통합 DOCX에 프로젝트별 금주 실적/내주 계획을 정리
 7. 타이틀 제외 일반 텍스트 8pt 적용 및 검증
+8. `generate_evaluation_report.py` 실행 → `evaluation_report.html`(팀원별 성과평가) 재생성
 
 HTML 저장만 필요할 때는 다음과 같이 요청:
 
