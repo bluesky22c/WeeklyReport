@@ -5,7 +5,7 @@ import re
 import zipfile
 from collections import OrderedDict
 from copy import deepcopy
-from datetime import datetime
+from datetime import date, datetime, timedelta
 
 from bs4 import BeautifulSoup
 from docx import Document
@@ -18,8 +18,6 @@ from docx.shared import Pt, RGBColor
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 PEOPLE = ["박주상", "주영모", "김병걸", "김현석", "송유림", "김성현", "배유민", "박장미", "김도현", "유찬", "황지환"]
-THIS_WEEK_LABEL = "2026-06-22 ~ 2026-06-26"
-NEXT_WEEK_LABEL = "2026-06-29 ~ 2026-07-03"
 
 
 def clean_text(value: str) -> str:
@@ -40,14 +38,39 @@ def cell_text(cell) -> str:
     return clean_text(cell.get_text("\n", strip=True))
 
 
-def latest_report_path(name: str) -> str | None:
+def current_week_window() -> tuple[date, date]:
+    """모든 팀원 HTML 중 최신 보고일이 속한 주(월~금)를 자동 계산한다."""
+    dates: list[date] = []
+    for name in PEOPLE:
+        folder = os.path.join(BASE, name)
+        if not os.path.isdir(folder):
+            continue
+        for fname in os.listdir(folder):
+            m = re.fullmatch(r"(\d{4}-\d{2}-\d{2})\.html", fname)
+            if m:
+                dates.append(datetime.strptime(m.group(1), "%Y-%m-%d").date())
+    if not dates:
+        raise RuntimeError("보고서 HTML을 찾지 못했습니다.")
+    latest = max(dates)
+    monday = latest - timedelta(days=latest.weekday())
+    return monday, monday + timedelta(days=4)
+
+
+def latest_report_path(name: str, monday: date, friday: date) -> str | None:
     folder = os.path.join(BASE, name)
     if not os.path.isdir(folder):
         return None
-    files = sorted(f for f in os.listdir(folder) if re.fullmatch(r"2026-06-2[56]\.html", f))
-    if not files:
+    candidates: list[tuple[str, str]] = []
+    for fname in os.listdir(folder):
+        m = re.fullmatch(r"(\d{4}-\d{2}-\d{2})\.html", fname)
+        if not m:
+            continue
+        d = datetime.strptime(m.group(1), "%Y-%m-%d").date()
+        if monday <= d <= friday:
+            candidates.append((m.group(1), os.path.join(folder, fname)))
+    if not candidates:
         return None
-    return os.path.join(folder, files[-1])
+    return sorted(candidates)[-1][1]
 
 
 def previous_template_path(current_yymmdd: str) -> str:
@@ -300,12 +323,12 @@ def build_grouped_rows(reports: list[dict]) -> list[tuple[str, list[str]]]:
     return output
 
 
-def set_table_header_text(table, latest_date: str) -> None:
+def set_table_header_text(table, this_week_label: str, next_week_label: str) -> None:
     headers = [
         "프로젝트",
-        f"금주 핵심 실적 ({THIS_WEEK_LABEL})",
+        f"금주 핵심 실적 ({this_week_label})",
         "담당자",
-        f"내주 계획 ({NEXT_WEEK_LABEL})",
+        f"내주 계획 ({next_week_label})",
         "목표일",
     ]
     for idx, text in enumerate(headers):
@@ -326,10 +349,14 @@ def append_template_row(table, template_tr, values: list[str], *, row_type: str)
 
 
 def build_docx() -> str:
+    monday, friday = current_week_window()
+    this_week_label = f"{monday.isoformat()} ~ {friday.isoformat()}"
+    next_week_label = f"{(monday + timedelta(days=7)).isoformat()} ~ {(friday + timedelta(days=7)).isoformat()}"
+
     reports: list[dict] = []
     missing: list[str] = []
     for name in PEOPLE:
-        path = latest_report_path(name)
+        path = latest_report_path(name, monday, friday)
         if not path:
             missing.append(name)
             continue
@@ -371,7 +398,7 @@ def build_docx() -> str:
     table = doc.tables[0]
     group_template = deepcopy(table.rows[1]._tr)
     data_template = deepcopy(table.rows[2]._tr)
-    set_table_header_text(table, latest_date)
+    set_table_header_text(table, this_week_label, next_week_label)
     clear_table_body(table)
 
     for row_type, values in build_grouped_rows(reports):
