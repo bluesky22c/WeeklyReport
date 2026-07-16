@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>황지환 - 주간업무보고 (2026-07-15)</title>
+<style>
+body{font-family:'맑은 고딕',sans-serif;margin:20px;font-size:12px}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #999;padding:8px;vertical-align:top;word-break:keep-all;white-space:pre-wrap}
+th{background:#ddeeff;font-weight:bold;text-align:center}
+h2{color:#003366}
+p{margin:2px 0;line-height:1.7}
+.source{color:#666;font-size:11px;margin-bottom:10px}
+</style></head><body>
+<h2>황지환 - 주간업무보고서 (2026-07-15)</h2>
+<p class="source">출처: [보고_제어1팀]주간업무보고서(황지환프로_20260716)</p>
+<table><tbody><tr><td><p><span>프로젝트</span></p></td><td><p><span>금주실적(</span><span>2026. 07.13 ~ 07.16</span><span>)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>내주계획(2026. 07.20 ~ 07.24)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>목표일</span></p></td></tr><tr><td rowspan="3" colspan="1"><p>SFA Micro LED-N SWP 설비용 전계인가시스템</p></td><td rowspan="3" colspan="1"><p></p><p></p><p><span>1. Process 진행 중 UI 잠금 (100%)</span></p><ul><li><span>진행 중 Recipe / Manual / PLC_Data(IO) 메뉴 클릭 차단, "Process 진행 중입니다" 메시지만 표시, Idle/에러 완료 시 재사용 가능</span></li></ul><p><span>2. Alarm 창 기능 보강 (100%)</span></p><ul><li><span>알람 이미지 표시 + 이상 부위 강조 원(빨간 원) 좌표 매핑</span></li><li><span>Alarm History 조회 기능 추가(발생~해제 이력 CSV 기록 + 기간 조회 팝업)</span></li></ul><p><span>3. Config 경로 지정 기능 추가 (100%)</span></p><ul><li><span>L</span><span>og 폴더 / Data 저장 폴더 Path 지정(찾아보기·폴더열기), 저장되는 로그·데이터 종류 안내 표기</span></li></ul><p><span>4. 통신 예외 처리 보강 (100%)</span></p><ul><li><span>PLC·WF1982 타임아웃 감지·자동 재연결 확인</span></li><li><span>LCR / Oscilloscope / DIO 자동 재연결(3초 간격) + 연속 5회 실패 시 알람 추가</span></li></ul><p><span>5. 메인/레시피 정리 (100%)</span></p><ul><li><span>상단 "PA" → "SWP" 수정, GlassID 상단바 실시간 표시 배선</span></li><li><span>Square 파형 완전 제거(UI·드라이버·시퀀스 파싱 전체)</span></li><li><span>레시피 삭제 시 뒤 번호 자동 앞당김(빈 칸 없이 압축), 판정값·PIN 두 탭 목록 정렬 통일</span></li><li><span>판정값 설정 페이지 레이아웃 정리(파형종류별 유효 파라미터·CH1/CH2 표시), PIN 페이지 후면/전면 세로 배치</span></li></ul><p><span>6. 핀 설정 맵 / 앱 아이콘 (100%)</span></p><ul><li><span>Config에 핀 설정 맵 팝업 버튼 추가(후면·전면 색상 핀맵 조회)</span></li><li><span>앱/작업표시줄 아이콘 전버전(2G) 것으로 교체</span></li></ul><p><span>7. 1920×1080 설비 모니터 대응 (80%)</span></p><ul><li><span>전체화면(1080) 적용으로 세로 스크롤 해결, Config·IO 등 넘침 페이지 재배치</span></li><li><span>DPI(100%) 기준 확인 완료 / 일부 페이지 잘림 개별 대응 잔여</span></li></ul><p></p><p></p></td><td rowspan="3" colspan="1"><p>황지환</p></td><td rowspan="3" colspan="1"><ol><li><span>1920×1080 모니터 UI 잘림 페이지 개별 마무리 (Main 등 잔여 페이지)</span></li><li><span>최종 PLC address Map 확정 후 상단 상태 표시 연동 (Signal Step / Pin Recipe No / State / GND Time / PPID)</span></li><li><span>버전 관리 체계 확정 (형식 결정 및 적용)</span></li><li><span>PPID 사용 여부·레시피 자동선택 구조 협의 (라인/MES 연동 방식 확인)</span></li><li><span>Alarm 페이지 최종 점검</span></li><li><span>2G 핀 전환 잔여 작업 (.pin 포맷 / 핀→채널 매핑 / 테스트 재작성)</span></li></ol></td><td rowspan="3" colspan="1"><p>황지환</p></td><td rowspan="3" colspan="1"><p>07.24</p></td></tr></tbody></table>
+</body></html>
