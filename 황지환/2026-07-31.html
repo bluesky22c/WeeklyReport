@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>황지환 - 주간업무보고 (2026-07-31)</title>
+<style>
+body{font-family:'맑은 고딕',sans-serif;margin:20px;font-size:12px}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #999;padding:8px;vertical-align:top;word-break:keep-all;white-space:pre-wrap}
+th{background:#ddeeff;font-weight:bold;text-align:center}
+h2{color:#003366}
+p{margin:2px 0;line-height:1.7}
+.source{color:#666;font-size:11px}
+</style></head><body>
+<h2>황지환 - 주간업무보고서 (2026-07-31)</h2>
+<p class="source">출처: [보고_제어1팀]주간업무보고서(황지환프로_20260731)</p>
+<table><tbody><tr><td><p><span>프로젝트</span></p></td><td><p><span>금주실적(</span><span>2026. 07.27 ~ 07.31</span><span>)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>내주계획(2026. 08.03 ~ 08.07)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>목표일</span></p></td></tr><tr><td rowspan="3" colspan="1"><p>SFA Micro LED-N SWP 설비용 전계인가시스템</p></td><td rowspan="3" colspan="1"><p></p><p></p><ol><li>실장비 IO 테스트 및 프로그램 테스트 수행 (100%) - 아래 2~4번은 테스트 중 발견된 문제 수정</li><li>DIO(UR20) 출력 통신 수정 (90%) - 코일 주소 0x8000 적용, 읽기 개수 실측 반영, 스레드 락 추가 / 출력 IO 맵 재작성 진행중</li><li>계측기 통신 안정화 (100%) - LCR 핸드쉐이크 재시도·COM 포트 누수·자동 재연결 중단 수정, 오실로스코프 재연결 경합 NRE 수정</li><li>전력량계(Accura 2500) 연동 (90%) - 레지스터 실측 확정, 3상 최댓값 기준 과전류 알람 / 전력량(Wh) 판독 별도 작업 필요</li><li>알람 실동작화 및 표시 개선 (100%) - 신호탑·부저 실동작 연동, EMS 상시 감시, 활성 알람 다중 표시, 좌/우 장치별 분리, 후면 이미지 추가, 알람 원인·조치 한글화</li><li>화재/온도/도어 감시 추가 (85%) - DeviceSafetyControl 연동, 기준값 설정 창, DI 알람 신설 / 실장비 COM·SlaveId 검증 미완</li><li>화면 UI 개편 (100%) - 메인 PIN RECIPE INFO 중계기판/BP 동시 표시, 오실로스코프 패널 기판별 분리, I/O LOG 탭 신설, 레시피 파형 편집기 CH1/CH2 구분</li></ol><p></p><p></p></td><td rowspan="3" colspan="1"><p>황지환</p></td><td rowspan="3" colspan="1"><ol><li>Recipe 파일명 하단 작성 영역 구분 - 경계선 또는 색상 추가로 구분 표시</li><li>"No 배선 패드" 진행 - 그 밑에 작성하는 칸이 없음</li><li>UI 창 크기 자동 대응 - 창 축소 시 잘리는 부분 전체 자동 맞춤 수정</li><li>용어 통일 - 전면/후면 → 좌측/우측으로 전체 변경</li><li>Turn ON / Turn OFF 버튼 통일 <span>- </span><span>신호 </span><span>Recipe </span><span>선택 </span><span>우측에 </span><span>버튼 </span><span>추가, </span><span>파형 </span><span>발생기 </span><span>출력 </span><span>ON/OFF </span><span>버튼도 </span><span>동일 </span><span>명칭으로 </span><span>변경</span></li><li><span>상단 </span><span>LCR1 </span><span>/ </span><span>LCR2 </span><span>선택 </span><span>표시 </span><span>개선</span><span>&nbsp;</span><span>- </span><span>선택 </span><span>시 </span><span>색상으로 </span><span>구분, </span><span>번호 </span><span>부분 </span><span>삭제</span></li><li><span>금주 </span><span>미완 </span><span>항목 </span><span>마무리</span><span>&nbsp;</span><span>- </span><span>DIO </span><span>출력 </span><span>IO </span><span>맵 </span><span>재작성, </span><span>전력량(Wh) </span><span>Int64 </span><span>판독, </span><span>화재 </span><span>감시 </span><span>실장비 </span><span>COM·SlaveId </span><span>검증</span></li></ol></td><td rowspan="3" colspan="1"><p>황지환</p></td><td rowspan="3" colspan="1"><p>08.07</p></td></tr></tbody></table>
+</body></html>
