@@ -51,6 +51,7 @@ PROJECTS = {
     "SEC 4종설비 1D/2D": ProjectRule("SEC 4종설비 1D/2D", 3.8, 1, "주영모"),
     "Vision 알고리즘 개발": ProjectRule("Vision 알고리즘 개발", 4.7, 1, "박주상"),
     "WHTM Loader/Unloader System": ProjectRule("WHTM Loader/Unloader System", 4.3, 2, "주영모"),
+    "EQ AI Agent 개발": ProjectRule("EQ AI Agent 개발", 3.5, 3, "박주상, 김병걸, 김도현"),
     "세미나/자료정리": ProjectRule("세미나/자료정리", 2.0, 1, ""),
     "KOPTI Sorter/Prober": ProjectRule("KOPTI Sorter/Prober", 3.8, 1, "주영모"),
     "KOPTI Micro LED 검사 설비": ProjectRule("KOPTI Micro LED 검사 설비", 4.3, 1, "박주상"),
@@ -108,6 +109,11 @@ def find_work_rows(path: str) -> list[list[str]]:
 def classify(name: str, project: str, body: str) -> str:
     text = f"{project} {body}".lower()
     raw = f"{project} {body}"
+
+    # EQ Agent 계열은 표기가 팀원마다 달라도 한 프로젝트다.
+    # 본문의 'RAS'·'알고리즘 개발'·'학습' 등에 먼저 걸리지 않도록 가장 앞에서 판정한다.
+    if re.search(r"EQ\s*(?:AI\s*)?Agent", raw, re.I) or re.sub(r"\s+", "", project).upper() == "ELP":
+        return "EQ AI Agent 개발"
 
     if any(k in raw for k in ["세미나", "세미", "자료 정리", "자료정리", "발표"]):
         return "세미나/자료정리"

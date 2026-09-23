@@ -224,6 +224,7 @@ D:\Temp\주간업무정리\
 | KOPTI Sorter/Prober | 3.8 | KOPTI Sorter/Prober 설비 이동, 현장 적용, 정지/상태 확인 이슈 대응 |
 | KOPTI Micro LED 검사 설비 | 4.3 | KOPTI Micro LED 검사 설비, Recipe GUI, Teaching 위치 GUI, MVVM 구조, Motor DLL, ACS/Fastech 축 파라미터 정리 |
 | MTP Cell Log | 3.2 | MTP Cell Log, 패턴별 휘도계 좌표, Header 대응, CSV 저장 이슈 |
+| EQ AI Agent 개발 | 3.5 | 사내 설비 AI Agent 개발. 파인튜닝(Tuning), 성능 시험대(Harness), 설비 연동(Runtime), 전용 도구·RAG 구성. `ELP EQ Agent`·`ELP`·`EQ AGENT` 표기를 이 이름으로 통합 |
 | 세미나/자료정리 | 2.0 | 발표, 자료 정리, 프로세스 정리, 업무 보조성 문서 작업 |
 | 교육/학습 | 1.0 | 교육 참석, 신입 교육, 기본 학습 활동 |
 
@@ -236,6 +237,7 @@ D:\Temp\주간업무정리\
 - `신뢰성 평가 설비`, `RAS`, `신뢰성 평가 시스템`은 `신뢰성 평가 시스템`으로 인식해 계산한다.
 - `RAS Vision Part`, `RAS Vision 알고리즘 개발`은 `Vision 알고리즘 개발`로 인식해 계산한다.
 - `LGD LifeTimeSystem`, `LGD ICBSystem`은 `LGD ICBSystem`으로 인식해 계산한다.
+- **`ELP EQ Agent`, `ELP`, `EQ AI Agent 개발`, `EQ AGENT`는 모두 동일한 하나의 프로젝트다.** 팀원별 표기가 달라 갈라져 있을 뿐이며(김병걸 `ELP EQ Agent` / 김도현 `ELP, EQ AI Agent 개발` / 박주상 `EQ AGENT`·`ELP`), 통합 DOCX와 성과평가 모두에서 한 프로젝트로 인식해 계산한다. 단, 프로젝트 컬럼 값이 정확히 `ELP`인 경우만 이 프로젝트로 보고, 본문에 우연히 등장하는 `ELP`(회사명·`ELP 본사` 등)는 매칭 대상이 아니다.
 
 | 프로젝트 | 확정 투입인원 | 투입자 |
 |----------|-------------:|--------|
@@ -262,6 +264,7 @@ D:\Temp\주간업무정리\
 | WHTM ACAControlSystem | 1명 | 주영모 |
 | Wafer Passive SPL Test System | 1명 | 배유민 |
 | Multi-Probing Tester | 2명 | 김병걸, 배유민 |
+| EQ AI Agent 개발 | 3명 | 박주상, 김병걸, 김도현 (2026-08 보고 기준 산출 — 변동 시 갱신) |
 
 반영 원칙:
 - 주간업무 내용 분석 시 프로젝트 컬럼의 `SEC`, `TOE`, `LGD` 같은 고객/대분류명은 프로젝트 분류에 사용하지 않는다.
@@ -284,6 +287,7 @@ D:\Temp\주간업무정리\
 - `LGD LifeTimeSystem`은 `LGD ICBSystem`으로 통합해 평가한다.
 - `Wafer Passive SPL Test System`은 `Multi-Probing Tester`와 분리해 평가한다.
 - `세미`는 `세미나`로 통합해 평가한다.
+- `ELP EQ Agent`, `ELP`, `EQ AI Agent 개발`, `EQ AGENT`는 대표 프로젝트명 **`EQ AI Agent 개발`**(난이도 3.5)로 통합해 평가한다. 통합 DOCX에서는 `기타` 그룹 아래 한 행으로 묶는다. (2026-08-28 확정, 2026-09-04 주 생성분부터 적용)
 - 기존 ETC 항목 중 아래는 세부 프로젝트로 확정 분류한다.
 - 박주상 ELP/WPF 관련 항목은 `Vision UI/WPF Framework`로 분류한다.
 - 주영모 SEC 4종 VA/2D 항목은 `SEC 4종설비 1D/2D`로 분류한다.

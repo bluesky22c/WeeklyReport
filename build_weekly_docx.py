@@ -207,6 +207,11 @@ def classify_docx_row(member: str, row: list[str]) -> tuple[str, str]:
     raw = f"{project}\n{this_week}"
     raw_c = compact(raw)
 
+    # EQ Agent 계열은 표기가 팀원마다 달라도 한 프로젝트다.
+    # 본문의 'RAS'·'알고리즘'·'학습' 등에 먼저 걸리지 않도록 가장 앞에서 판정한다.
+    if re.search(r"EQ\s*(?:AI\s*)?Agent", raw, re.I) or compact(project) == "elp":
+        return "기타", "EQ AI Agent 개발"
+
     if any(k in raw for k in ["Multi-Probing", "MPT", "EPI-SE1000"]):
         return "SEC", "L-TF Multi-Probing Tester (MPT) 고객대응"
     if any(k in raw for k in ["신뢰성", "LEDoS", "CSS", "Vision Part"]):
