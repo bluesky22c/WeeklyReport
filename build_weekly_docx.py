@@ -186,6 +186,18 @@ def write_cell(cell, text: str, *, bold: bool = False, center: bool = False) -> 
     cell.vertical_alignment = WD_ALIGN_VERTICAL.CENTER
 
 
+def unique_cells(row) -> list:
+    """병합된 셀은 row.cells가 중복 반환하므로 실제 <w:tc> 기준으로 하나만 남긴다."""
+    seen, cells = set(), []
+    for cell in row.cells:
+        key = id(cell._tc)
+        if key in seen:
+            continue
+        seen.add(key)
+        cells.append(cell)
+    return cells
+
+
 def compact(value: str) -> str:
     return re.sub(r"\s+", "", value).lower()
 
@@ -332,8 +344,10 @@ def set_table_header_text(table, this_week_label: str, next_week_label: str) -> 
         f"내주 계획 ({next_week_label})",
         "목표일",
     ]
+    header_cells = unique_cells(table.rows[0])
     for idx, text in enumerate(headers):
-        write_cell(table.rows[0].cells[idx], text, bold=True, center=True)
+        if idx < len(header_cells):
+            write_cell(header_cells[idx], text, bold=True, center=True)
 
 
 def clear_table_body(table) -> None:
@@ -345,8 +359,11 @@ def clear_table_body(table) -> None:
 def append_template_row(table, template_tr, values: list[str], *, row_type: str) -> None:
     table._tbl.append(deepcopy(template_tr))
     row = table.rows[-1]
+    cells = unique_cells(row)
     for idx, value in enumerate(values):
-        write_cell(row.cells[idx], value, bold=(row_type == "group"), center=(row_type == "group" or idx in (2, 4)))
+        if idx >= len(cells):
+            break
+        write_cell(cells[idx], value, bold=(row_type == "group"), center=(row_type == "group" or idx in (2, 4)))
 
 
 def build_docx() -> str:
