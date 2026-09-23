@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>황지환 - 주간업무보고 (2026-08-27)</title>
+<style>
+body{font-family:'맑은 고딕',sans-serif;margin:20px;font-size:12px}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #999;padding:8px;vertical-align:top;word-break:keep-all;white-space:pre-wrap}
+th{background:#ddeeff;font-weight:bold;text-align:center}
+h2{color:#003366}
+p{margin:2px 0;line-height:1.7}
+.source{color:#666;font-size:11px}
+</style></head><body>
+<h2>황지환 - 주간업무보고서 (2026-08-27)</h2>
+<p class="source">출처: [보고_제어1팀]주간업무보고서(황지환프로_20260828)</p>
+<table><tbody><tr><td><p><span>프로젝트</span></p></td><td><p><span>금주실적(</span><span>2026. 08.24 ~ 08.28</span><span>)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>내주계획(2026. 08.31 ~ 09.04)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>목표일</span></p></td></tr><tr><td rowspan="3" colspan="1"><p>SFA Micro LED-N SWP 설비용 전계인가시스템</p></td><td rowspan="3" colspan="1"><p></p><p></p><div><div><p><span><span>1. 메인 화면 배치 정리 + 가려진 PLC 상태 램프 복구 (100%)</span> — 배치가 Designer와 런타임 코드 두 곳에 다르게 적혀 디자이너 미리보기가 실행 화면과 달랐던 것을 Designer로 일원화. 그 과정에서 상태줄 제목과 LED 표가 겹쳐 PLC 램프가 가려져 장비 9개 중 8개만 보이던 결함 발견·복구. 변경 전후 렌더링 픽셀 대조로 실행 화면 무변경 확인</span></p><p><span><br></span></p><p><span><span>2. 상태줄 가독성 (100%)</span> — 장비명·LED 글자가 작아 멀리서 안 읽히던 것 확대, 램프와 글자 세로 정렬 어긋남 해소</span></p><p><span><br></span></p><p><span><span>3. PLC 유발 시퀀스 실패 경로 테스트 (100%)</span> — 비상정지·IO리셋·StepChange ACK 미수신 등 현장에서 반드시 생기지만 한 번도 실행된 적 없던 에러 경로를 자동 회귀로 고정. 인가 중 개입 시 출력 OFF·릴레이 해제·Idle 복귀, ACK 미수신 시 10초 타임아웃 처리 검증</span></p><p><span><br></span></p><p><span><span>4. 시뮬레이터 접속 방식 변경 (100%)</span> — 설정 파일을 고쳐 쓰는 방식이라 원복을 잊으면 현장 PC가 계속 시뮬레이터를 찾고, 설정 화면 저장 시 값이 박혀 실물 PLC 기본값이 조용히 망가지는 경로였음. 명령줄 인자(<code>--sim</code>)로 옮겨 이번 실행에만 적용되게 함. 실패 테스트의 고정 대기를 응답 관측으로 교체(전체 51→45초)</span></p><p><span><br></span></p><p><span><span>5. 운영 데이터 D 드라이브 일원화 (100%)</span> — 로그·결과만 D로 가고 설정·레시피·알람이력은 C에 남아 있던 것을 D로 이관, 첫 실행 시 기존 데이터 자동 승계(원본 보존). 레시피 175개·설정·알람이력 승계 실물 확인</span></p><p><span><br></span></p><p><span><span>6. 죽은 코드·미사용 로그인 제거 (100%) </span>— 분석기 전수조사로 호출부 없는 코드 정리. 로그인은 이미 빠져 있어 결과·알람 이력의 작업자 칸이 계속 빈 칸임을 확인 — 추적성 필요 시 PLC가 주는 GlassID·PPID로 채우는 방향</span></p><p><span><br></span></p><p><span><span>7. 지침 파일 사실 오류 정정 (100%) </span>— 지침 3개 파일이 서로 어긋나 틀린 값이 계속 재생산되던 것. 경로·빌드 출력·통신구성도 버전(v14→v16) 정정, 누락 하드웨어 3종(전력량계·온도/화재 감지기·Safety PLC) 추가</span></p></div></div><p></p><p></p></td><td rowspan="3" colspan="1"><p>황지환</p></td><td rowspan="3" colspan="1"><div><br></div><p><span>1.&nbsp;</span><span>CC-Link IE 실장비 연동 검증</span><span> — 핸드셰이크 비트 실측, IoResetReply 응답 유지시간 확인</span></p><p><span><br></span></p><p><span>2.&nbsp;</span><span>핀투핀/OS 테스트 실장비 반복검증 + 스코프 디비전 확인</span><span> — 판정 기준값 실측 반영, Time/Div·Volt/Div·트리거 동작</span></p><p><span><br></span></p><p><span>3.&nbsp;</span><span>WPF 실장비 동작 검증 + 자동테스트 이관</span></p></td><td rowspan="3" colspan="1"><p>황지환</p></td><td rowspan="3" colspan="1"><p>09. 04</p></td></tr></tbody></table>
+</body></html>
