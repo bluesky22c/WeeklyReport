@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>박장미 - 주간업무보고 (2026-08-14)</title>
+<style>
+body{font-family:'맑은 고딕',sans-serif;margin:20px;font-size:12px}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #999;padding:8px;vertical-align:top;word-break:keep-all;white-space:pre-wrap}
+th{background:#ddeeff;font-weight:bold;text-align:center}
+h2{color:#003366}
+p{margin:2px 0;line-height:1.7}
+.source{color:#666;font-size:11px}
+</style></head><body>
+<h2>박장미 - 주간업무보고서 (2026-08-14)</h2>
+<p class="source">출처: 일일업무보고 메일 정리 — [AR System] 20260810~11 A/E 적용 결과 내용 및 업데이트 내역(2026-08-11 수신), [업무보고] AR AutoReview 프로그램 개선 및 검증 결과 2026-08-12(2026-08-12 수신) / 그룹웨어 주간업무보고 미제출분을 팀장 지시로 정리</p>
+<table><tbody><tr><td><p><span>프로젝트</span></p></td><td><p><span>금주실적(2026. 08. 10 ~ 08. 14)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>내주계획(2026. 08. 17 ~ 08. 21)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>목표일</span></p></td><td colspan=""><p><span>진행율</span></p></td></tr><tr><td><p>AR System</p></td><td><p><span>1. Auto Exposure(A/E) 기능 현장 테스트 (08/10~11)</span></p>
+<p><span><br></span></p>
+<p><span>&nbsp;- Align, Mapping, Pixel(Sparse) 검사 시퀀스별 A/E 동작 검증</span></p>
+<p><span>&nbsp;- 목표 평균 밝기, 오차 허용 범위, Threshold, ROI, 측정 채널, Exposure 범위를 기준으로 밝기를 측정하고 목표 범위 이탈 시 Exposure 자동 조정 후 재촬상하는 흐름 확인</span></p>
+<p><span>&nbsp;- Red/Green/Blue 측정 채널 및 복수 레시피 조건으로 총 68회 시험, 67회 A/E 결과 정상 반환 (1회는 시험 중 작업 중단으로 촬상 취소)</span></p>
+<p><span>&nbsp;- 완료 시험 Align 27회 / Mapping 23회 / Pixel(Sparse) 17회, 평균 보정 횟수 1.70 / 2.09 / 2.35 Step</span></p>
+<p><span>&nbsp;- 이 중 28건은 초기 촬상 조건에서 보정 없이 0Step OK 판정</span></p>
+<p><span><br></span></p>
+<p><span>2. A/E 최종값 재사용 기능 개발 (08/10~11)</span></p>
+<p><span><br></span></p>
+<p><span>&nbsp;- A/E 완료 후 최종 Exposure를 해당 시퀀스 레시피 값에 반영하고 recipe.json에 자동 저장하도록 수정</span></p>
+<p><span>&nbsp;- Align은 Align Exposure, Mapping은 Mapping Exposure, 일반 검사는 Scan Exposure, Sparse 검사는 Sparse 필터 Exposure로 분리 반영</span></p>
+<p><span>&nbsp;- 업데이트 적용 이후 레시피 반영 로그 56건 전량 정상 저장, 저장 실패 없음</span></p>
+<p><span>&nbsp;- 이전 검사에서 저장된 Exposure가 다음 검사의 Recipe Base/Start Exposure로 사용되는 연속 동작 로그 확인</span></p>
+<p><span>&nbsp;- ND 필터는 A/E 가변 제어 대상에서 제외, 시퀀스/Sparse 필터 레시피의 고정 설정값 유지</span></p>
+<p><span><br></span></p>
+<p><span>3. 고객사 요청사항 반영 및 당일 검증 (08/12)</span></p>
+<p><span><br></span></p>
+<p><span>&nbsp;- 제어 프로그램의 Tact Time / 이력 조회 탭 미연결 건 보완 완료, 고객사 요청에 맞게 화면 구성 수정</span></p>
+<p><span>&nbsp;- 화면 가장자리 픽셀 왜곡 보완을 위한 Target 영역 중앙 검사 기능 추가 — Mapping 후 유저가 선택한 NxM 영역 중간으로 Stage X,Y 이동 후 Image AF 재실행하고 검사 진행 (On/Off 선택 가능, 검증 완료)</span></p>
+<p><span>&nbsp;- Grab Point List 편집 기능 추가 — 유저가 Col, Row 입력 후 매뉴얼 Align/Mapping 완료 시 입력된 Grab Point의 X, Y를 연산해 해당 위치로 이동 (검증 진행 중)</span></p>
+<p><span><br></span></p>
+<p><span>4. 산출물 및 조회 방식 개선 (08/10~11)</span></p>
+<p><span><br></span></p>
+<p><span>&nbsp;- RESULT 파일 내용을 고객사 요청 계산식 반영하도록 수정</span></p>
+<p><span>&nbsp;- 고객사 요청에 따라 일부 산출물의 저장 방식 및 경로 변경</span></p>
+<p><span>&nbsp;- Control 프로그램의 제품 이력 및 Tact 화면을 Cell Log 기반 조회 방식으로 정리, 현장 Control 프로그램에서 정상 동작 확인</span></p></td><td><p><span>박장미</span></p></td><td><p><span>1. Grab Point List 편집·순차 촬상 기능 추가 테스트 및 최종 검증 완료 (08/14 추가 테스트분 결과 업데이트)</span></p>
+<p><span><br></span></p>
+<p><span>2. 고객사 개선 요청사항 대응 및 현장 적용 지속</span></p></td><td><p><span>박장미</span></p></td><td><p><span>08.</span></p></td><td colspan=""><p><br></p></td></tr></tbody></table>
+</body></html>

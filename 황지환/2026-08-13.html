@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>황지환 - 주간업무보고 (2026-08-13)</title>
+<style>
+body{font-family:'맑은 고딕',sans-serif;margin:20px;font-size:12px}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #999;padding:8px;vertical-align:top;word-break:keep-all;white-space:pre-wrap}
+th{background:#ddeeff;font-weight:bold;text-align:center}
+h2{color:#003366}
+p{margin:2px 0;line-height:1.7}
+.source{color:#666;font-size:11px}
+</style></head><body>
+<h2>황지환 - 주간업무보고서 (2026-08-13)</h2>
+<p class="source">출처: [보고_제어1팀]주간업무보고서(황지환프로_20260814)</p>
+<table><tbody><tr><td><p><span>프로젝트</span></p></td><td><p><span>금주실적(</span><span>2026. 08.10 ~ 08.14</span><span>)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>내주계획(2026. 08.17 ~ 08.21)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>목표일</span></p></td></tr><tr><td rowspan="3" colspan="1"><p>SFA Micro LED-N SWP 설비용 전계인가시스템</p></td><td rowspan="3" colspan="1"><p></p><p></p><div><div><span><span>1. 미쓰비시 PLC 통신</span> - 시뮬레이터 선검증 (코드 100% / 실장비 0%) - IoReset 핸드셰이크</span></div><div><span>구현(사양서 3.6-4/5), 어드레스맵 실행 시 CSV 자동 덤프, PLC 시뮬레이터 신규 개발 →</span></div><div><span>전 구간 실주행(10스텝 49.4초 정상종료) / 잔여: CC-Link IE 실장비 연동, IoResetReply 응답시간 실측</span></div><div><span></span></div><div><span><span>2. 핀투핀 / OS 테스트 창 개편</span> (90%, 전주 대비 유지) - 개방대역(1MΩ↑) 안정화 예외처리로</span></div><div><span>정상개방 오표기 해소, BP기판 AC- 단독적용 무동작 수정, SWITCH INIT 표 지시값 복귀,</span></div><div><span>OS 테스트 UI 정지(측정당 2초) 백그라운드 이관, 릴레이 전환 전 WF 차단 / 잔여 10%: 실장비 반복검증</span></div><div><span></span></div><div><span><span>3. 스코프 화면 스케일 자동 설정</span> (70%, 전주 대비 유지) - 수동 인가 경로에도 이식</span></div><div><span>/ 잔여 30%: 실장비 Time/Div·Volt/Div·트리거 확인</span></div><div><span></span></div><div><span><span>4. 계측 판정 오매핑 수정</span> (100%) - 레시피 "1차/2차"(알람 등급)를 스코프 CH1~4로 잘못 매핑해</span></div><div><span>CH3·CH4가 항상 0 기준을 보며 NG를 통과시키던 결함. 2차 위반만 정지 / 1차는 알람 후 진행</span></div><div><span></span></div><div><span><span>5. 화재 감지 실장비 COM 검증</span> (100%, 이월 완료) - COM2/115200 응답 확인, 레지스터 맵 실측</span></div><div><span>확정(경고 30.0℃ / 알람 40.0℃), 2번기 기준값 복구·1번기 일치 확인, 온도 파싱 오버플로 수정,</span></div><div><span>설정 손상 방지 위해 조회 전용 전환</span></div><div><span></span></div><div><span><span>6. USER 임의파형 미인가 수정</span> (100%) - USER 선택 시 사인파가 인가되던 문제 + 시퀀스</span></div><div><span>파라미터 누락(메모리번호·Duty·Symmetry·Phase)</span></div><div><span></span></div><div><span><span>7. 버스트 트리거 / 알람 램프</span> (100%) - 기판 구성별 EXT1/EXT2 자동 선택(두 기판 인가 시점</span></div><div><span>어긋남 방지), 알람 시 RESET 램프 점등, 신호 정지 순서 복원(트리거 해제 → WF OFF)</span></div><div><span></span></div><div><span><span>8. 공정 이력·품질</span> (100%) - SEQUENCE.log 신설(공정별 흐름·상태 체류시간·에러 사유),</span></div><div><span>상시 실패 테스트 2건 해소 → 자동테스트 실패 0 / 통과 430건</span></div></div><p></p><p></p></td><td rowspan="3" colspan="1"><p>황지환</p></td><td rowspan="3" colspan="1"><div><span>1. CC-Link IE 실장비 연동 검증 (08.18 화 착수) - 핸드셰이크 비트 실측,</span></div><div><span>IoResetReply 응답 유지시간 확인. 실장비 연동 가능 상태이므로 금주 잔여일부터 착수</span></div><div><span></span></div><div><span>2. 핀투핀/OS 테스트 실장비 반복검증 + 스코프 디비전 확인 (08.18) - 판정 기준값</span></div><div><span>실측 반영, Time/Div·Volt/Div·트리거 동작</span></div><p><span><br></span></p><p><span><br></span></p></td><td rowspan="3" colspan="1"><p>황지환</p></td><td rowspan="3" colspan="1"><p>08.19</p></td></tr></tbody></table>
+</body></html>
