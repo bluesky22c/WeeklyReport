@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>황지환 - 주간업무보고 (2026-09-17)</title>
+<style>
+body{font-family:'맑은 고딕',sans-serif;margin:20px;font-size:12px}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #999;padding:8px;vertical-align:top;word-break:keep-all;white-space:pre-wrap}
+th{background:#ddeeff;font-weight:bold;text-align:center}
+h2{color:#003366}
+p{margin:2px 0;line-height:1.7}
+.source{color:#666;font-size:11px}
+</style></head><body>
+<h2>황지환 - 주간업무보고서 (2026-09-17)</h2>
+<p class="source">출처: 황지환l제어1팀l2026-09-17 16:37:28[보고_제어1팀]주간업무보고서(황지환프로_20260918)</p>
+<table><tbody><tr><td><p><span>프로젝트</span></p></td><td><p><span>금주실적(</span><span>2026. 09.14 ~ 09.18</span><span>)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>내주계획(2026. 09.21 ~ 09.25)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>목표일</span></p></td></tr><tr><td rowspan="3" colspan="1"><p>SFA Micro LED-N SWP 설비용 전계인가시스템</p></td><td rowspan="3" colspan="1"><p><strong>1. 핀투핀 검사 공정 내부 이동 (100%)</strong> — SDC 9/10 협의 반영. 기존 공정 시작 전 독립 수행 → 공정 시작 응답 후 설비 요청 시 수행으로 변경. 요청 10초 미수신 시 공정 중단, NG 시 1회 재시도 후 판정.</p><p><br></p><p><strong>2. 핀 레시피 STEP별 적용 (100%)</strong> — SDC 9/15 협의(STEP당 신호·핀 레시피 각 1개) 반영. 기존 공정 시작 시 1회만 읽어 공정 내내 고정하던 구조를 STEP마다 설비 지시를 읽도록 변경. 변경 이력 3개 로그에 기록.</p><p><br></p><p><strong>3. Step 테이블 확장 — 핀 레시피 사전 검증 (100%)</strong> — 설비 전달 스텝 테이블을 {신호,시간} 2워드 → {신호,핀,시간} 3워드로 확장. 공정 시작 시점에 전 STEP의 레시피 존재 여부를 일괄 검증하여, 미등록 번호를 기판 전압 인가 전에 차단.</p><p><br></p><p><strong>4. 레시피명 영역 침범 버그 수정 (100%)</strong> — 핀 레시피명 20건(100워드)이 사양서 배정 영역(48워드)을 초과해 후속 BP OSC2 계측 블록을 덮어쓰던 문제. 배정 범위 내로 제한하고 회귀 테스트로 고정.</p><p><br></p><p><strong>5. PLC 통신 사양서 개정 (80%)</strong> — Data Map·핸드셰이크 순서 전면 재작성. 미사용 비트 7개 폐지(PowerOn 2, 상·하단 핀 세팅 NG 3, 구버전 예약 4), 미사용 오프셋 재정리, 협의 요청 8항목 도출. SFA 통보 완료.</p><p><br></p><p><strong>6. PLC 로그 주소 표기 (100%)</strong> — 송수신 로그 23개 지점에 비트·워드 주소 병기. 현장 통신 이상 시 사양서 대조 시간 단축.</p><p><br></p><p><span><strong>7. SDC 전계인가 시나리오 검토 착수 (30%)</strong> </span>— 9/17 수신. STEP 변경 시 신호 off 1.3s를 구간별 분해 완료(설비 응답 510ms / 릴레이 재설정·안정화 499ms / 트리거 전 안정화 293ms).</p></td><td rowspan="3" colspan="1"><p>황지환</p></td><td rowspan="3" colspan="1"><p><strong>1. SDC 시나리오 검토 결과 회신</strong> — 요청사항 4건 답변 및 사양서 전제 수정. 신호 off 시간 단축 방안 제시(1.3s → 0.8s, 핀 변경 없는 STEP 기준).</p><p><br></p><p><strong>2. 신호 연장(릴레이 유지) 구현</strong> — 핀 변경이 없는 STEP은 인터페이스 박스 릴레이 재설정을 생략. 신호 off 구간 499ms 단축.</p><p><br></p><p><strong>3. 두 기판 동시 인가 대응</strong> — 전사 공정 요구사항. STEP 종료 시 중계기판·BP기판 릴레이를 일괄 해제하던 구조를 기판별 개별 제어로 변경.</p><p><br></p><p><strong>4. Alive 신호 신설</strong> — 설비·계측 PC 상호 생존 확인. 이상 발생 시 즉시 알람, 정상 시 5분 주기 로그 기록.</p><p><br></p><p><strong>5. PLC 주소맵 덤프 오류 수정</strong> — 크기 상수가 주소로 출력되어 실제 필드와 주소가 중복 표기되던 문제.</p></td><td rowspan="3" colspan="1"><p>황지환</p></td><td rowspan="3" colspan="1"><p>09.23</p></td></tr></tbody></table>
+</body></html>

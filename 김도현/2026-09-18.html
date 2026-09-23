@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>김도현 - 주간업무보고 (2026-09-18)</title>
+<style>
+body{font-family:'맑은 고딕',sans-serif;margin:20px;font-size:12px}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #999;padding:8px;vertical-align:top;word-break:keep-all;white-space:pre-wrap}
+th{background:#ddeeff;font-weight:bold;text-align:center}
+h2{color:#003366}
+p{margin:2px 0;line-height:1.7}
+.source{color:#666;font-size:11px}
+</style></head><body>
+<h2>김도현 - 주간업무보고서 (2026-09-18)</h2>
+<p class="source">출처: 김도현l제어1팀l2026-09-18 09:12:16[보고_제어1팀]주간업무보고서_김도현프로_20260918</p>
+<table><tbody><tr><td><p><span>프로젝트</span></p></td><td><p><span>금주실적(</span><span>2026.</span><span>9.14~9.18</span><span>)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>내주계획(2026.9.28~10.2)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>목표일</span></p></td></tr><tr><td><p>SDC-Lifetime System</p></td><td><p><span>&nbsp;- .csv, .dat 데이터 신뢰성 확인 및 포맷 확인</span></p><p><span>&nbsp;-&nbsp;</span><span>SDC-1캠퍼스 LifeTimeSystem 12호기 문제상황 해결방법 이번 설비에도 적용</span></p><ul><ul>
+</ul></ul></td><td><p>김도현</p></td><td><p></p><p></p><p></p><p><span><span>&nbsp;-</span> 알람 부분 재검토</span></p><p><span>&nbsp;- IO 미할당 재검토</span></p><p><span>&nbsp;- 데이터 검증 및&nbsp;</span></p><p></p><p></p><p></p></td><td><p>김도현</p></td><td><p><br></p></td></tr><tr><td><p>ELP, EQ AI Agent 개발</p></td><td><p></p><p></p><p></p><p></p><p></p><p></p><p><span>1. 데이터 조회 기능 보강</span></p><p><span>&nbsp;- 조회 결과가 모델을 거치지 않게, 건수·종류를 코드가 먼저 계산해 결과 앞에 표기</span></p><p><span>&nbsp;- 표 원본은 모델을 거치지 않고 화면이 직접 출력 → 답이 짧고 정확해짐</span></p><p><span>&nbsp;- 모델이 표를 직접 세지 않게 되어, 잘린 일부를 전체로 말하던 오류 제거</span></p><p><span>&nbsp;- 긴 조회는 요약해서 전달하고, 사람은 '원본 전부 보기' 로 전량 확인 가능</span></p><p><span><br></span></p><p><span>2. 조회 결과 불일치 해소</span></p><p><span>&nbsp;- 검사 결과가 두 드라이브에 나뉘어 있는데 한쪽만 읽던 것을 양쪽 모두 읽도록 수정</span></p><p><span>&nbsp;- 같은 질문인데 조회 방법에 따라 답이 달라지던 문제 해소</span></p><p><span>&nbsp;- 두 경로의 답이 어긋나면 자동으로 걸러내는 점검 추가</span></p><p><span><br></span></p><p><span>3. 실사용 조건 검증 및 안전 장치</span></p><p><span>&nbsp;- 현장에서 물을 법한 문항을 운전자 웹 화면으로 반복 실행, 답의 수치를 원본 데이터와 전수 대조 / 오류 발견 시마다 원인 수정 후 재측정, 최종 전 항목 일치</span></p><p><span>&nbsp;- 무인 모드 자동 승인에 시간 제한 부여, 승인 창마다 현장 확인 문구 추가</span></p><p><span>&nbsp;- 조작 명령 경로를 하나로 통일 / 실행 이력이 기록에 남음</span></p><p><span>&nbsp;- 자동 점검 항목 및 단위 시험 확대</span></p><p></p><p></p><p></p></td><td><p>김도현</p></td><td><p><span>&nbsp;- 현장 서버 확정 실험 (로컬 GPU 4bit / 5bit 를 동일 문항으로 비교)</span></p><p><span>&nbsp;- 긴 조회 대응 : 한 번에 다루는 정보량이 현장 계획보다 크게 나와 사양 상향 또는 축약 방식 결정</span></p><p><span>&nbsp;- 채점 기준 재작성 : 도구 호출 여부가 아닌 설비 로그·결과 기준으로 확대 적용</span></p><p><span>&nbsp;- 조작 문항 실기 확대 (오토런 완주·다단 제어 재확인)</span></p><p><span>&nbsp;- 타 설비 이식 점검 : 온보딩 문서대로 처음부터 진행하여 문서 검증 및 이식 가능성 확인</span></p></td><td><p>김도현</p></td><td><p><br></p></td></tr><tr><td><p><span>SDC-1캠퍼스 LifeTimeSystem On-Call</span></p></td><td><p><span>&nbsp;- .csv/.dat 파일 저장 오류 수정, 문제 상황 재현하여 정상 동작 검증</span></p><p>&nbsp;-&nbsp;LT, CLT 설비 LifeTime Test로 문제 미발생 및 안정성 최종 확인 후 릴리즈 배포 완료</p></td><td><p>김도현</p></td><td><p><br></p></td><td><p>김도현</p></td><td><p><br></p></td></tr></tbody></table>
+</body></html>
