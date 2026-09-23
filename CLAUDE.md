@@ -35,7 +35,7 @@ KT Biz 그룹웨어(gwp.ktbizoffice.com)의 **결재-미결함 또는 결재-완
 3. `#message` iframe 안의 실제 업무 테이블만 추출하고, 결재/작성자/문서분류/참조 같은 그룹웨어 폼 헤더는 저장하지 않는다.
 4. 특정 팀원 문서가 `미결함`과 `완료함` 모두에 없을 때만 누락으로 기록한다. 로컬 DOCX나 통합 보고서에서 임의 생성하지 않는다.
 5. 저장 후 `D:\Temp\주간업무정리\build_index.py`를 실행해 `index.html`을 갱신한다.
-6. 전주 통합 DOCX 형식을 참고해 해당 주 `[보고_제어1팀]주간업무보고(YYMMDD).docx`를 생성한다.
+6. 전주 통합 DOCX 형식을 참고해 해당 주 `docx\[보고_제어1팀]주간업무보고(YYMMDD).docx`를 생성한다. 템플릿 탐색·출력 모두 `docx\` 폴더 기준이다.
 7. 통합 DOCX 표 구조는 `프로젝트 / 금주 핵심 실적 / 담당자 / 내주 계획 / 목표일` 5열을 유지한다.
 8. 통합 DOCX의 첫 타이틀 `주간업무 실적 및 계획 (제어1팀)`은 기존 형식을 유지하고, 나머지 작성일/작성자/표 헤더/표 본문/프로젝트 그룹 행 등 일반 텍스트는 8pt로 작성한다.
 9. HTML 저장과 `index.html` 갱신이 끝난 뒤 `D:\Temp\주간업무정리\generate_evaluation_report.py`를 실행해 `evaluation_report.html`(팀원별 성과평가 결과)을 재생성한다. 입력이 팀원별 HTML 보고서이므로 반드시 2~5단계(HTML 저장·index 갱신) 이후, 요약(10단계) 전에 실행한다.
@@ -71,10 +71,18 @@ D:\Temp\주간업무정리\
 ├── 김도현\
 ├── 유찬\
 ├── 황지환\
+├── docx\            ← 주차별 통합 DOCX 보관 폴더
+│   ├── [보고_제어1팀]주간업무보고(260807).docx
+│   ├── [보고_제어1팀]주간업무보고(260814).docx
+│   └── ...
 ├── index.html       ← 통합 뷰어 (편집 가능)
 ├── CLAUDE.md        ← 이 파일
 └── file_server.py   ← (임시) 파일 저장용 로컬 서버
 ```
+
+통합 DOCX는 `docx\` 폴더에만 둔다. `build_weekly_docx.py`가 전주 템플릿을 찾는 위치이자 금주 파일을 출력하는 위치이므로, 루트로 옮기거나 폴더 밖에 보관하면 다음 주 생성이 실패한다.
+
+> ⚠️ PowerShell로 이 DOCX들을 다루는 명령(`Move-Item`/`Copy-Item`/`Test-Path`)은 반드시 `-LiteralPath`를 쓴다. 파일명의 `[보고_제어1팀]`이 와일드카드 문자 클래스로 해석돼 대상이 매칭되지 않고, 조용히 아무 일도 일어나지 않는다 (2026-08-14 확인).
 
 ---
 
@@ -637,6 +645,8 @@ for name in sorted(os.listdir(base)):
 | 폼헤더 제거 | `D:\Temp\주간업무정리\fix_all_headers.py` |
 | 헤더 스타일 | `D:\Temp\주간업무정리\add_header_style.py` |
 | 성과평가 리포트 | `D:\Temp\주간업무정리\generate_evaluation_report.py` → `evaluation_report.html` |
+| 통합 DOCX 생성 | `D:\Temp\주간업무정리\build_weekly_docx.py` → `docx\[보고_제어1팀]주간업무보고(YYMMDD).docx` |
+| DOCX 보관 폴더 | `D:\Temp\주간업무정리\docx\` (전주 템플릿 탐색 위치 겸 출력 위치) |
 | 그룹웨어 URL | `https://gwp.ktbizoffice.com/ezapproval/main/indexapproval` |
 | iframe ID | `message` |
 | 문서 항목 선택자 | `li[name="DocList_TR"]` |
@@ -659,7 +669,7 @@ Claude는 위 요청을 받으면 이 CLAUDE.md의 `0. 반복 작업 트리거` 
 2. 금주 대상 팀원별 주간업무보고 수집
 3. 팀원별 `YYYY-MM-DD.html` 저장
 4. `index.html` 재생성
-5. 전주 DOCX 형식을 참고해 금주 `[보고_제어1팀]주간업무보고(YYMMDD).docx` 생성
+5. 전주 DOCX 형식을 참고해 금주 `docx\[보고_제어1팀]주간업무보고(YYMMDD).docx` 생성
 6. 통합 DOCX에 프로젝트별 금주 실적/내주 계획을 정리
 7. 타이틀 제외 일반 텍스트 8pt 적용 및 검증
 8. `generate_evaluation_report.py` 실행 → `evaluation_report.html`(팀원별 성과평가) 재생성

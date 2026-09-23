@@ -2,7 +2,7 @@ import os
 
 from docx import Document
 
-path = r"D:\Temp\주간업무정리\[보고_제어1팀]주간업무보고(260529).docx"
+path = r"D:\Temp\주간업무정리\docx\[보고_제어1팀]주간업무보고(260529).docx"
 out = []
 doc = Document(path)
 

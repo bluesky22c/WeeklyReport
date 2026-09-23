@@ -17,6 +17,7 @@ from docx.shared import Pt, RGBColor
 
 
 BASE = os.path.dirname(os.path.abspath(__file__))
+DOCX_DIR = os.path.join(BASE, "docx")
 PEOPLE = ["박주상", "주영모", "김병걸", "김현석", "송유림", "김성현", "배유민", "박장미", "김도현", "유찬", "황지환"]
 
 
@@ -75,10 +76,10 @@ def latest_report_path(name: str, monday: date, friday: date) -> str | None:
 
 def previous_template_path(current_yymmdd: str) -> str:
     candidates: list[tuple[str, str]] = []
-    for fname in os.listdir(BASE):
+    for fname in os.listdir(DOCX_DIR):
         m = re.fullmatch(r"\[보고_제어1팀\]주간업무보고\((\d{6})\)\.docx", fname)
         if m and m.group(1) < current_yymmdd:
-            candidates.append((m.group(1), os.path.join(BASE, fname)))
+            candidates.append((m.group(1), os.path.join(DOCX_DIR, fname)))
     if not candidates:
         raise RuntimeError("전주 통합 DOCX 템플릿을 찾지 못했습니다.")
     return sorted(candidates)[-1][1]
@@ -374,7 +375,8 @@ def build_docx() -> str:
 
     latest_date = max(r["date"] for r in reports)
     yymmdd = datetime.strptime(latest_date, "%Y-%m-%d").strftime("%y%m%d")
-    out_path = os.path.join(BASE, f"[보고_제어1팀]주간업무보고({yymmdd}).docx")
+    os.makedirs(DOCX_DIR, exist_ok=True)
+    out_path = os.path.join(DOCX_DIR, f"[보고_제어1팀]주간업무보고({yymmdd}).docx")
     template_path = previous_template_path(yymmdd)
 
     doc = Document(template_path)
