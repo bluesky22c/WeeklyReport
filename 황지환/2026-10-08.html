@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>황지환 - 주간업무보고 (2026-10-08)</title>
+<style>
+body{font-family:'맑은 고딕',sans-serif;margin:20px;font-size:12px}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #999;padding:8px;vertical-align:top;word-break:keep-all;white-space:pre-wrap}
+th{background:#ddeeff;font-weight:bold;text-align:center}
+h2{color:#003366}
+p{margin:2px 0;line-height:1.7}
+.source{color:#666;font-size:11px}
+</style></head><body>
+<h2>황지환 - 주간업무보고서 (2026-10-08)</h2>
+<p class="source">출처: 황지환l제어1팀l2026-10-08 08:29:06[보고_제어1팀]주간업무보고서(황지환프로_20261008)</p>
+<table><tbody><tr><td><p><span>프로젝트</span></p></td><td><p><span>금주실적(</span><span>2026. 10.06 ~ 10.08</span><span>)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>내주계획(2026. 10.12 ~ 10.16)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>목표일</span></p></td></tr><tr><td rowspan="3" colspan="1"><p>SFA Micro LED-N SWP 설비용 전계인가시스템</p></td><td rowspan="3" colspan="1"><p></p><p><span><span>1. 상위 레시피(MASTER) 탭 편성 표 구현 (100%)</span> — SDC 표 양식대로 핀 레시피 + 시그널 스텝 3개(CH1·CH2 신호 레시피·시작 시간) + 전체 시간 입력 표 구현. 저장된 레시피만 콤보박스로 선택, 시작 시간 음수(-1) 허용. 입력 즉시 저장. 상위 레시피 슬롯은 10개로 조정.</span></p><p><span><br></span></p><p><span><span>2. MASTER 탭 화면 결함 수정 (100%)</span> — 콤보가 열리지 않던 문제, 목록이 비어 나오던 문제, 항목이 저절로 선택되던 문제, Enter 로 저장되지 않던 문제 등 4건 수정. 실제 화면에서 동작 확인.</span></p><p></p></td><td rowspan="3" colspan="1"><p>황지환</p></td><td rowspan="3" colspan="1"><p><span>1. 상위 레시피 시퀀스 연동 — 설비가 상위 레시피 번호를 워드에 쓰고 정보 요청 비트를 올리면, 제어 PC 가 핀·신호 레시피 번호와 시작 시간을 워드 7개에 채우고 준비 완료 비트로 응답. 없는 번호면 "레시피 없음" 비트로 응답. 안 쓰는 스텝 칸은 0 으로 덮어써 이전 레시피 값이 남지 않게 처리.</span></p><p><span><br></span></p><p><span>2. 알람 발생 비트 추가</span></p><p><span><br></span></p><p><span>3. PLC·전력량계 통신 끊김 알람 추가</span></p><p><span><br></span></p><p><span>4. MASTER 탭 검증 — 상위 레시피 저장·불러오기·Copy/Paste 단위 테스트 추가 및 전체 테스트 실행.</span></p><p><span><br></span></p><p><span>5. 삼성에 PC 방역 및 반입</span></p><p><br></p></td><td rowspan="3" colspan="1"><p>황지환</p></td><td rowspan="3" colspan="1"><p>10.16</p></td></tr></tbody></table>
+</body></html>
