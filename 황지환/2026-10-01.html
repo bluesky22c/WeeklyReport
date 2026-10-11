@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>황지환 - 주간업무보고 (2026-10-01)</title>
+<style>
+body{font-family:'맑은 고딕',sans-serif;margin:20px;font-size:12px}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #999;padding:8px;vertical-align:top;word-break:keep-all;white-space:pre-wrap}
+th{background:#ddeeff;font-weight:bold;text-align:center}
+h2{color:#003366}
+p{margin:2px 0;line-height:1.7}
+.source{color:#666;font-size:11px}
+</style></head><body>
+<h2>황지환 - 주간업무보고서 (2026-10-01)</h2>
+<p class="source">출처: 황지환l제어1팀l2026-10-01 16:56:06[보고_제어1팀]주간업무보고서(황지환프로_20261002)</p>
+<table><tbody><tr><td><p><span>프로젝트</span></p></td><td><p><span>금주실적(</span><span>2026. 09.28 ~ 10.02</span><span>)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>내주계획(2026. 10.06 ~ 10.09)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>목표일</span></p></td></tr><tr><td rowspan="3" colspan="1"><p>SFA Micro LED-N SWP 설비용 전계인가시스템</p></td><td rowspan="3" colspan="1"><p><strong>1. 삼성·SFA·ELP 3사 합동 미팅 — 상위 레시피 체계 확정 (100%)</strong> — 핀 레시피와 신호 레시피를 묶는 상위 계층 도입 결정. 상위 레시피 1건이 전계인가 STEP 하나에 대응하며, 설비는 상위 레시피 번호 하나만 지정. 핀투핀은 공정 초반 중계기판·BP기판 동시 진행으로 확정. 시작 시간 음수 입력 시 다음 지시까지 유지(오버라이드) 방식 합의.</p><p><br></p><p><strong>2. 상위 레시피 비트·워드 자료 작성 및 SFA 협의 (100%)</strong> — 비트 3개(정보 요청 / 준비 완료 / 레시피 없음)와 워드 8개로 정리해 전달 자료 작성. SFA 통화로 레시피 이름·시간은 미전송, 상위 레시피 호출 시 1회 전송으로 확정. 안 쓰는 칸은 0(미사용) 약속 필요 항목 도출.</p><p><br></p><p><strong>3. 레시피 화면 상위 레시피(MASTER) 탭 신설 (80%)</strong> — 레시피 탭을 SIGNAL/PIN 2개에서 MASTER/SIGNAL/PIN 3개로 확장. 슬롯 20개 목록 + Copy/Paste/Delete 구현, 상위 레시피 모델 신설. 편성 표(핀·신호 레시피 번호 선택)는 미완.</p><p><br></p><p><strong>4. 핀투핀 두 기판 동시 측정 적용 (100%)</strong> — 차례로 재던 것을 동시 측정으로 변경. 인터페이스 박스·LCR 이 기판별로 분리돼 대기 이유가 없음. 시뮬레이터 측정 15,018ms → 11,480ms(23.6% 단축). 실기 간섭 확인 필요.</p><p><br></p><p><strong>5. 전력량계 가상 모드 통일 (100%)</strong> — 전력량계만 <code>Enabled</code> 플래그로 과전류 감시를 끌 수 있던 구조를 다른 장치와 같은 <code>Virtual Mode</code> 로 변경. 꺼져 있어도 화면·알람에 표시가 없어 감시 중단을 인지할 수 없던 위험 제거.</p><p><br></p><p><strong>6. 화면 깨짐 원인 규명 및 복구 (100%)</strong> — 장시간 구동 시 CONFIG 화면이 부풀어 겹치던 문제. DPI 모드(PerMonitorV2)와 코드 스케일링 충돌이 원인. Designer 파일에 1.25배가 누적 저장돼 있던 값을 전부 설계값으로 복구하고 DPI 모드를 SystemAware 로 변경.</p></td><td rowspan="3" colspan="1"><p>황지환</p></td><td rowspan="3" colspan="1"><p><strong>1. 상위 레시피 편성 표 구현</strong> — MASTER 탭에 핀 레시피 1개 + 시그널 스텝 3개(CH1·CH2 신호 레시피·시작 시간) 입력 표 구현. 저장된 레시피만 콤보박스로 선택 가능하게 처리.</p><p><br></p><p><strong>2. 알람 발생 비트 추가</strong> — SFA 데이터맵 신규판 수령 후 적용. 발생 시 비트 ON + 워드 기록, 해제 시 비트 OFF + 워드 0 처리. 복구 시 알람 자동 해제 포함.</p><p><br></p><p><strong>3. PLC·전력량계 통신 끊김 알람 추가</strong> — PLC 는 알람 정의(2000)가 있으나 호출부가 없어 연결, 전력량계는 끊김 알람 코드 신설.</p><p><br></p><p><strong>4. SFA 설비 동작·신호 타이밍 자료 요청서 마무리</strong> — 데이터맵 재정의 및 시퀀스 협의 선행 자료.&nbsp;</p><p><br></p></td><td rowspan="3" colspan="1"><p>황지환</p></td><td rowspan="3" colspan="1"><p>10.09</p></td></tr></tbody></table>
+</body></html>

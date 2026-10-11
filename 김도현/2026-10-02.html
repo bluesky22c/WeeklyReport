@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>김도현 - 주간업무보고 (2026-10-02)</title>
+<style>
+body{font-family:'맑은 고딕',sans-serif;margin:20px;font-size:12px}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #999;padding:8px;vertical-align:top;word-break:keep-all;white-space:pre-wrap}
+th{background:#ddeeff;font-weight:bold;text-align:center}
+h2{color:#003366}
+p{margin:2px 0;line-height:1.7}
+.source{color:#666;font-size:11px}
+</style></head><body>
+<h2>김도현 - 주간업무보고서 (2026-10-02)</h2>
+<p class="source">출처: 김도현l제어1팀l2026-10-02 10:17:14[보고_제어1팀]주간업무보고서_김도현프로_20261002</p>
+<table><tbody><tr><td><p><span>프로젝트</span></p></td><td><p><span>금주실적(</span><span>2026</span><span>.9.28~10.2</span><span>)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>내주계획(2026.10.6~10.8)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>목표일</span></p></td></tr><tr><td><p>SDC-Lifetime System</p></td><td><p><span>&nbsp;- IO mapping 및 알람 UI 생성 및 수정</span></p><p><span>&nbsp;- 설비 연결시 팬조작 및 출력부들 관련 예외상황 처리</span></p><p><span>&nbsp;- A동 설비 PC 4대 파일 sync 및 셋업</span></p><ul><ul>
+</ul></ul></td><td><p>김도현</p></td><td><p></p><p></p><p></p><p><span><span>&nbsp;</span>-&nbsp;알람 UI 보강</span></p><p><span>&nbsp;- 설비 turn on 대기</span></p><p></p><p></p><p></p></td><td><p>김도현</p></td><td><p><br></p></td></tr><tr><td><p>ELP, EQ AI Agent 개발</p></td><td><p></p><p></p><p></p><p></p><p></p><p></p><p><span>1. 새 설비 적용 구조 정비</span></p><p><span>&nbsp;- 설비별 설정·도구를 '설비 팩'으로 분리, 메인 프로그램은 공용 기능만 유지 (범용 프로그램 + 설비 팩 구조)</span></p><p><span>&nbsp;- 새 설비 적용 시 자동 점검 항목과 단계별 온보딩 문서 작성, 가상 설비로 대리 적용해 문서 검증</span></p><p><span><br></span></p><p><span>2. 현장 배포용 설치본 제작</span></p><p><span>- 실행·관리 화면·점검을 한 프로그램으로 통합, 설치 파일 생성</span></p><p><span>- 관리 화면 추가 (설정, 프로그램 위치, 연결 시험, 진단)</span></p><p><span>- 설비 팩 암호화·서명 및 허브 난독화 적용, 현장 PC 환경 의존성(.NET) 포함 배포</span></p><p><span>- 실제 설치 시험으로 결함 발견 및 수정, 재발 방지 시험 추가</span></p><p><span><br></span></p><p><span>3. 답변 신뢰성 보강</span></p><p><span>&nbsp;- 조회 실패 관련 오류 및 기타 데이터 처리 관련 오동작 사전 차단</span></p><p><span>&nbsp;- 되묻기 관련 구조 보강</span></p><p><span>&nbsp;- 측정 데이터 집계 오류 정리 및 구조 보강</span></p><p><span>&nbsp;- 답변에 설명서·내부 지시문이 그대로 노출되지 않도록 출력 점검 추가</span></p><p><span><br></span></p><p><span>4. 실사용 조건 검증 (RTX 4090 24GB 기준)</span></p><p><span>&nbsp;- Qwen 3.8 27B 4bit 양자화 모델 테스트 환경 구성 (colab GPU로 현장 조건 대리 실험)</span></p><p><span>&nbsp;- 기존 =&gt; 4bit 양자화 시 아주 소량의 성능 낙폭 존재하지만, 기존 문항 테스트 이후 비교하여 우리 프로그램 선에서 성능상 차이가 없으면 4bit로 사용 예정 (성능 낙폭 소량으로 존재할 경우 5bit 진행)</span></p><p><span>&nbsp;- 구조 변경 후 회귀 확인: 40문항 일괄 시험, 복잡한 조작 문항 7개 가상 설비 실행</span></p><p></p><p></p><p></p></td><td><p>김도현</p></td><td><p><span>&nbsp;- 4bit / 5bit 비교 시험: 동일 40문항으로 정답률·응답 시간·대화 길이 한도 비교 후 현장 사양 확정</span></p><p><span><br></span></p><p><span>&nbsp;- 설치 파일 실제 설치 점검 : 설치 → 설비 팩 추가 → 점검 → 대화까지 처음부터 진행</span></p><p><span><br></span></p><p><span>&nbsp;- 개발자 모드 기능 추가 (프로그래밍 및 디버깅 보조 관련)</span></p><p><span>&nbsp; / 사용자 모드와 개발자 모드로 분리하여 로컬 모델 성능 허용 범위 내에서 환각 최소화로 현장 개발 보조 에이전트로 구축</span></p><p><span>&nbsp; / 우선 증상 → 원인 추적부터 적용, 소스 수정은 보조까지만 하고 빌드·배포는 사람이 진행</span></p></td><td><p>김도현</p></td><td><p><br></p></td></tr><tr><td><p><br></p></td><td><p><br></p></td><td><p><br></p></td><td><p><br></p></td><td><p><br></p></td><td><p><br></p></td></tr></tbody></table>
+</body></html>
