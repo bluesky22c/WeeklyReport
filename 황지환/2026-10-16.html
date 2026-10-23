@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>황지환 - 주간업무보고 (2026-10-16)</title>
+<style>
+body{font-family:'맑은 고딕',sans-serif;margin:20px;font-size:12px}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #999;padding:8px;vertical-align:top;word-break:keep-all;white-space:pre-wrap}
+th{background:#ddeeff;font-weight:bold;text-align:center}
+h2{color:#003366}
+p{margin:2px 0;line-height:1.7}
+.source{color:#666;font-size:11px}
+</style></head><body>
+<h2>황지환 - 주간업무보고서 (2026-10-16)</h2>
+<p class="source">출처: 황지환l제어1팀l2026-10-16 08:39:30[보고_제어1팀]주간업무보고서(황지환프로_20261016)</p>
+<table><tbody><tr><td><p><span>프로젝트</span></p></td><td><p><span>금주실적(</span><span>2026. 10.12 ~ 10.16</span><span>)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>내주계획(2026. 10.19 ~ 10.23)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>목표일</span></p></td></tr><tr><td rowspan="3" colspan="1"><p>SFA Micro LED-N SWP 설비용 전계인가시스템</p></td><td rowspan="3" colspan="1"><p></p><p></p><p><span>1.&nbsp;</span><span><span>상위 레시피 공정 연동 (100%)</span> — 설비는 공정 시작 때 상위 레시피 번호만 주고, 제어 PC 가 STEP 블록을 각 STEP 의 전체 시간대로 차례로 인가하도록 변경. STEP 마다 설비와 주고받던 응답 대기를 없애 공정 시간 단축. STEP 이 바뀔 때와 공정이 끝날 때 설비에 알림. 핀이 바뀌는 STEP 은 출력 OFF → 릴레이 전환 → 재인가 순서로 처리. 핀투핀은 공정 시작 후 그 레시피가 쓰는 핀 전체를 검사.</span></p><p><br></p><p><span>2.&nbsp;</span><span><span>상위 레시피(MASTER) 탭 개편 (100%)</span> — STEP 블록을 최대 10개까지 추가·삭제. 다음 STEP 까지 신호를 이어 내는 "유지" 체크박스 추가(시작 시간 -1 방식 폐지). 전체 시간 필수 입력. Save 버튼을 눌러야 저장되도록 변경, 초기화 버튼 추가. 저장할 때 공정 시작과 같은 규칙으로 검사. 상위 레시피 슬롯 20개로 확대.</span></p><p><span><br></span></p><p><span>3.&nbsp;</span><span><span>메인 화면 스케줄 개편 (100%)</span> — 설비가 부른 상위 레시피의 STEP 표시. 핀·신호 레시피 번호와 이름 분리. 진행 중 STEP 은 파란색, 인가 중인 채널은 초록색으로 표시. 경과 시간 0.1초 단위 표시. 상단에 MASTER RECIPE NO 표시.</span></p><p><span><br></span></p><p><span>4.&nbsp;</span><span><span>공정 예외 처리 보강 (100%) </span>— 공정 중 에러를 설비에 NG 비트로 통지. 완료 단계에서 설비가 응답하지 않으면 대기 상태로 자동 복귀. 결과 CSV 에 공정 단위 결과와 실패 스텝 NG 기록 추가.</span></p><p><span><br></span></p><p><span>5.&nbsp;</span><span><span>인터페이스 박스 트리거 프로토콜 v2.1 반영 (100%)</span> — 트리거 제어 명령이 채널 선택형으로 바뀐 것을 반영. CH1=EXT1, CH2=EXT2 로 트리거 입력을 분리하고 두 채널 동시 인가 처리.</span></p><p><span><br></span></p><p><span><span>6.&nbsp;</span><span>상위 레시피 UI 미팅 자료 작성</span></span></p><p><span><span><br></span></span></p><p><span><span>7. 삼성에 PC 반입</span></span></p><p></p><p></p></td><td rowspan="3" colspan="1"><p>황지환</p></td><td rowspan="3" colspan="1"><p><span>1.&nbsp;</span><span>설비 PLC 데이터맵 대기</span></p><p><span><br></span></p><p><span>2. 실장비 검증</span></p><p><span><br></span></p><p><span>3.&nbsp;알람 발생 비트 추가, PLC 통신 끊김 알람 추가</span></p><p><span><br></span></p><p><span>4.&nbsp;변경 사항 단위 테스트 정비 및 전체 테스트 실행</span></p></td><td rowspan="3" colspan="1"><p>황지환</p></td><td rowspan="3" colspan="1"><p>10.23</p></td></tr></tbody></table>
+</body></html>
