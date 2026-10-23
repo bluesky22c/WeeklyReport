@@ -112,7 +112,9 @@ def classify(name: str, project: str, body: str) -> str:
 
     # EQ Agent 계열은 표기가 팀원마다 달라도 한 프로젝트다.
     # 본문의 'RAS'·'알고리즘 개발'·'학습' 등에 먼저 걸리지 않도록 가장 앞에서 판정한다.
-    if re.search(r"EQ\s*(?:AI\s*)?Agent", raw, re.I) or re.sub(r"\s+", "", project).upper() == "ELP":
+    # 프로젝트 칸 'ELP'만으로는 판정하지 않는다 — 팀원들이 WPF Framework·LifeTime 이식·리퀴드 렌즈 조사 등
+    # 다른 사내 업무에도 'ELP'를 써서, EQ Agent 행은 본문의 'EQ Agent' 표기로만 잡는다 (2026-10-23).
+    if re.search(r"EQ\s*(?:AI\s*)?Agent", raw, re.I):
         return "EQ AI Agent 개발"
 
     if any(k in raw for k in ["세미나", "세미", "자료 정리", "자료정리", "발표"]):
@@ -150,6 +152,10 @@ def classify(name: str, project: str, body: str) -> str:
         return "WHTM ACAControlSystem"
     if any(k in raw for k in ["Loader", "Unloader", "G4.5"]):
         return "WHTM Loader/Unloader System"
+    # 'SDC LifeTime'은 아래 LGD ICBSystem의 'LifeTime'·MTP의 'MTP'보다 먼저 판정해야 SDC로 남는다
+    if any(k in raw for k in ["MVT", "S6 LifeTime", "SDC LifeTime"]):
+        if name == "주영모":
+            return "SDC LifeTime/MVT System"
     if any(k in raw for k in ["AR", "AF", "ND Filter", "PKG", "TSP"]):
         return "AR System"
     if any(k in raw for k in ["ICBSystem", "LG Mobile OLED", "IVL", "PG Control", "Voltage Sweep", "MTP/IVL Test"]):
@@ -162,9 +168,6 @@ def classify(name: str, project: str, body: str) -> str:
     if any(k in raw for k in ["LifeTime", "ICBSystem", "C310V2", "LG Mobile OLED"]):
         if name == "주영모":
             return "LGD ICBSystem"
-    if any(k in raw for k in ["MVT", "S6 LifeTime", "SDC LifeTime"]):
-        if name == "주영모":
-            return "SDC LifeTime/MVT System"
     if any(k in raw for k in ["4종", "1D", "2D", "Flicker", "Image Rotate"]):
         if name == "주영모":
             return "SEC 4종설비 1D/2D"
