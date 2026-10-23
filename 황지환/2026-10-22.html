@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="UTF-8">
+<title>황지환 - 주간업무보고 (2026-10-22)</title>
+<style>
+body{font-family:'맑은 고딕',sans-serif;margin:20px;font-size:12px}
+table{border-collapse:collapse;width:100%}
+td,th{border:1px solid #999;padding:8px;vertical-align:top;word-break:keep-all;white-space:pre-wrap}
+th{background:#ddeeff;font-weight:bold;text-align:center}
+h2{color:#003366}
+p{margin:2px 0;line-height:1.7}
+.source{color:#666;font-size:11px}
+</style></head><body>
+<h2>황지환 - 주간업무보고서 (2026-10-22)</h2>
+<p class="source">출처: 황지환l제어1팀l2026-10-22 17:49:59[보고_제어1팀]주간업무보고서(황지환프로_20261023)</p>
+<table><tbody><tr><td><p><span>프로젝트</span></p></td><td><p><span>금주실적(</span><span>2026. 10.19 ~ 10.23</span><span>)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>내주계획(2026. 10.26 ~ 10.30)</span></p></td><td><p><span>담당자</span></p></td><td><p><span>목표일</span></p></td></tr><tr><td rowspan="3" colspan="1"><p>SFA Micro LED-N SWP 설비용 전계인가시스템</p></td><td rowspan="3" colspan="1"><p></p><p></p><p><span>1.&nbsp;</span><span><span>비상정지·통신 끊김 대응 보강 (100%)</span> — 전장박스 비상정지(DIO)를 공정 시퀀스가 직접 감시해 즉시 출력 차단, 비상정지 해제 전에는 준비 확인 NG 응답. 인가 중 PLC 통신이 끊기면 즉시 정지 후 정리까지 수행(통신 끊김 알람). 에러 상태에서는 준비 확인 요청에 NG 로 답하고, 설비 리셋으로 대기 복귀.</span></p><div>
+</div><div><span><span>2. 트리거·출력 동작 개선 (100%)</span> — 공정 종료 시 트리거 해제 1회로 정리, 신호 전환 시 불필요한 대기 제거. 수동 화면에서 채널 하나만 꺼도 다른 채널 출력·트리거 유지. STEP 이 넘어가며 출력이 이어질 때도 파형 캡처 저장.</span></div><div>
+</div><div><span><span>3. 레시피 편집 개선 (100%)</span> — Save 를 눌러야만 반영되도록 변경(저장 안 한 값은 공정에 미사용), 화면 이동·종료 시 저장 여부 확인. 같은 채널에 같은 신호 연속 입력 방지, 신호 번호 선택 즉시 검사. MASTER 탭 싱글 스텝·STEP 구분 표시(음영·구분선) 추가. 메인 스케줄에서 유지 신호의 출처 STEP 표시.</span></div><div>
+</div><div><span><span>4. 테스트 및 코드 정리 (100%)</span> — 시뮬레이터로 10 STEP 공정 반복 및 에러 상황(빈 레시피, 핀 누락, PLC 끊김) 시험, 단위 테스트 608건 통과. 안 쓰는 코드 정리.</span></div><div>
+</div><div><span><span>5. 현장 적용 배포본·가이드 작성 (100%)</span> — 설비 PC 설치 절차, 현장 확인 항목, 현재 PLC 데이터맵, 설비 PLC 연동 절차 정리.</span></div><div>
+</div><div><span><span>6. 삼성 현장 방문</span> — 설비 턴온, 계측 장비 연결 확인. 인터페이스 박스 펌웨어 업데이트 및 PLC 재확인은 미진행. 펌웨어 파일을 옮기려면 김래호 프로가 SFA PC 에 원격 접속 후 광케이블로 연결된 계측 PC 로 들어가야 하는데, SFA 가 다음 주 수요일까지 일정이 차 있어 그 이후 진행 예정.</span></div><p></p><p></p></td><td rowspan="3" colspan="1"><p>황지환</p></td><td rowspan="3" colspan="1"><p><span>1</span><span>.&nbsp;<span>인터페이스 박스 펌웨어 업데이트 (SFA 일정 확인 후 원격 전송)</span></span></p><div><span>
+</span></div><div><span>2. 설비 PLC 연동 확인 — 데이터맵 협의(임시 주소 확정), 핸드셰이크 시험</span></div><div><span>
+</span></div><div><span>3. 실장비 검증 — 트리거 배선, 비상정지, STEP 전환·유지 동작</span></div><p><span><br></span></p></td><td rowspan="3" colspan="1"><p>황지환</p></td><td rowspan="3" colspan="1"><p>10.30</p></td></tr></tbody></table>
+</body></html>
